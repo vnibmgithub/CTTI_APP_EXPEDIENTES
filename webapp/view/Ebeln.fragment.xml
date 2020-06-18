@@ -1,0 +1,29 @@
+<core:FragmentDefinition 
+	xmlns:core="sap.ui.core" 
+	xmlns="sap.m" 
+	xmlns:b="sap.suite.ui.commons" 
+	xmlns:u="sap.ui.unified" 
+	xmlns:l="sap.ui.layout.form">
+	<Dialog 
+		title="Vincular comanda" 
+		resizable="false" 
+		draggable="false" 
+		showHeader="false" 
+		horizontalScrolling="false">
+		<content>
+			<l:SimpleForm editable="true">
+				<l:content>
+					<VBox>
+						<Label text="Comanda"/>
+						<Input name="Comanda" id="Comanda_id" 
+							value="{ path: 'Comanda', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:10, nullable:false } }"/>
+					</VBox>
+				</l:content>
+			</l:SimpleForm>
+		</content>
+		<buttons>
+			<Button icon="sap-icon://add" id="ButNouAssist" press="onNovaComanda" text="Vincular" type="Emphasized"/>
+			<Button icon="sap-icon://sys-cancel" id="ButCloseAttachDialog" press="onCloseAttachDialogMM" text="Cancel·lar"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

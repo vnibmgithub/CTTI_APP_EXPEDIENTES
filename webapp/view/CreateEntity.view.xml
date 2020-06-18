@@ -1,0 +1,88 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:smart="sap.ui.comp.smartfield" xmlns="sap.m" xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" controllerName="CRUD_EXP.CRUD_Exp.controller.CreateEntity">
+	<semantic:DetailPage id="page" title="Nou Expedient" busy="{viewModel>/busy}">
+		<semantic:content>
+			<f:SimpleForm 
+				class="editableForm" 
+				columnsL="1" 
+				columnsM="1" 
+				editable="true" 
+				emptySpanL="4" 
+				emptySpanM="4" 
+				id="newEntitySimpleForm" 
+				labelSpanL="3" 
+				labelSpanM="3" 
+				layout="ResponsiveGridLayout" 
+				maxContainerCols="4" 
+				minWidth="1024">
+				<f:content>
+					<Label text="Objecte" required="true"/>
+					<TextArea id="area0" cd:w5g.dt.context="/ExpedientSet" value="{Objecte}"/>
+					<Label text="Modalitat" required="true"/>
+				    <Select xmlns:sap.ui.core="sap.ui.core" id="selectmod" selectedKey="{Modalit}" items="{/ValuesModalitatsSet}">
+				    	<items>
+				    		<sap.ui.core:ListItem text="{Descrip}" key="{Modalit}"/>
+				    	</items>
+				    </Select>
+					<Label text="Procediment" required="true"/>
+				    <Select xmlns:sap.ui.core="sap.ui.core" id="selectproc" selectedKey="{Procedim}" items="{/ValuesProcedimSet}" change="onChangeProcediment">
+				        <items>
+				    		<sap.ui.core:ListItem text="{Descrip}" key="{Procedim}"/>
+				        </items>
+				    </Select>
+					<Label text="Acord marc relacionat" required="true"/>
+					<Input value="{Acordmr}" width="100%" id="Acordmr_id" visible="false"/>
+					<Label text="Supòsit de negociat" required="true"/>
+				    <Select xmlns:sap.ui.core="sap.ui.core" id="selectsup" selectedKey="{Suposit}" items="{/ValuesSupositsSet}" visible="false">
+				        <items>
+				    		<sap.ui.core:ListItem text="{Descrip}" key="{Suposit}"/>
+				        </items>					
+				    </Select>
+					<Label text="Tipus de contracte" required="true"/>
+				    <Select xmlns:sap.ui.core="sap.ui.core" id="selectcont" items="{/ValuesTipusContrSet}" selectedKey="{Tipcontr}">
+				        <items>
+				    		<sap.ui.core:ListItem text="{Descrip}" key="{Tipcontr}"/>
+				        </items>
+				    </Select>
+					<Label text="Subtipus de contracte" required="true"/>
+<!--				    <Select xmlns:sap.ui.core="sap.ui.core" id="selectsub" items="{/ValuesSubTipContrSet}" selectedKey="{Subtipco}">
+				        <items>
+    					    <sap.ui.core:ListItem text="{Descrip}" key="{Subtipco}"/>
+				        </items>
+				    </Select> -->
+					<ComboBox
+						id="selectsub"
+						items="{ path: '/ValuesSubTipContrSet',
+								 sorter: { path: 'Descrip' } }"
+						selectedKey="{Subtipco}">
+						<core:Item key="{Subtipco}" text="{Descrip}" />
+					</ComboBox>				    
+					<Label text="Lots"/>
+					<CheckBox selected="{Lots}" id="Lots_id" select="onLots"/>
+					<Label text="Num. lots"/>
+					<Input value="{Numlots}" width="100%" id="Numlots_id" visible="false"/>
+					<Label text="Tipus d'expedient" required="true"/>
+				    <Select xmlns:sap.ui.core="sap.ui.core" id="selecttipex" items="{/ValuesTipusExpSet}" selectedKey="{Tipexp}">
+				        <items>
+    					    <sap.ui.core:ListItem text="{Descrip}" key="{Tipexp}"/>
+				        </items>
+				    </Select>
+					<Label text="Centre" required="true"/>
+				    <Select xmlns:sap.ui.core="sap.ui.core" id="selectcentre" selectedKey="{Centre}" items="{/ValuesCentresSet}">
+				    	<items>
+				    		<sap.ui.core:ListItem id="__item0" text="{Descrip}" key="{Centre}"/>
+				    	</items>
+				    </Select>
+				</f:content>
+			<f:customData>
+			    <core:CustomData key="w5g.dt.editable" value="true" id="data9"/>
+			</f:customData>
+			</f:SimpleForm>
+		</semantic:content>
+		<semantic:saveAction>
+			<semantic:SaveAction id="save" press="onSave"/>
+		</semantic:saveAction>
+		<semantic:cancelAction>
+			<semantic:CancelAction id="cancel" press="onCancel"/>
+		</semantic:cancelAction>
+	</semantic:DetailPage>
+</mvc:View>

@@ -1,0 +1,51 @@
+<mvc:View xmlns="sap.m" xmlns:t="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="CRUD_EXP.CRUD_Exp.controller.Factura">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle} {Codiexp}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" cd:w5g.dt.context="/ExpedientSet">
+		<semantic:content>
+			<ObjectHeader id="objectHeader" title="{Descripcio}"/>
+			<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="newEntitySimpleForm" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="4" minWidth="1024">
+				<f:content>
+					<Label text="Codi Proveidor"/>
+					<Text id="Proveidor_id" text="{ path: 'Proveidor', type: 'sap.ui.model.odata.type.String'}"/>
+					<Label text="Nom Proveidor"/>
+					<Text id="NomProveidor_id" text="{ path: 'NomProveidor', type: 'sap.ui.model.odata.type.String'}"/>
+					<Label text="NIF Proveidor"/>
+					<Text id="NifProveidor_id" text="{ path: 'NifProveidor', type: 'sap.ui.model.odata.type.String'}"/>
+					<Label text="DataFactura"/>
+					<Text id="DataFactura" text="{path:'DataFactura', type:'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true}}"/>
+					<Label text="Import Factura"/>
+					<Text id="ImportFactura" text="{path: 'ImportFactura', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:12, scale:2, nullable:false } } {Moneda}"/>
+				</f:content>
+			</f:SimpleForm>
+
+			<Table id="idProductsTable" items="{FactToFactP}">
+				<columns>
+					<Column width="100px">
+						<Text text="Posició"/>
+					</Column>
+					<Column width="600px">
+						<Text text="Descripció"/>
+					</Column>
+					<Column width="100px" visible="{viewModel>/QuanVis}">
+						<Text text="Quantitat"/>
+					</Column>
+					<Column hAlign="End">
+						<Text text="Preu"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{Posnr}"/>
+							<Text text="{ShortText}"/>
+							<ObjectNumber number="{Quantity}" unit="{Unit}"/>
+							<ObjectNumber number="{parts:[{path:'Import'},{path:'Moneda'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false}}" unit="{Moneda}" textAlign="End"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>				
+		</semantic:content>
+		<semantic:cancelAction>
+			<semantic:CancelAction id="cancel" press="onCancel"/>
+		</semantic:cancelAction>
+	</semantic:DetailPage>
+</mvc:View>

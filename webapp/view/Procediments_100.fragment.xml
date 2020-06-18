@@ -1,0 +1,11 @@
+<core:FragmentDefinition     
+	xmlns="sap.m" 
+    xmlns:core="sap.ui.core" 
+    xmlns:l="sap.ui.layout" 
+    xmlns:f="sap.ui.layout.form" 
+    xmlns:mvc="sap.ui.core.mvc">
+		            <CheckBox text="Basat en acord marc" selected="{masterView>/ProcA}"/>
+		            <CheckBox text="Menor" selected="{masterView>/ProcM}"/>
+		            <CheckBox text="Negociat sense publicitat" selected="{masterView>/ProcNS}"/>
+		            <CheckBox text="Obert" selected="{masterView>/ProcO}"/>
+</core:FragmentDefinition>

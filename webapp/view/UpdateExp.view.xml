@@ -1,0 +1,635 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:smart="sap.ui.comp.smartfield" xmlns="sap.m" xmlns:t="sap.ui.table" xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" controllerName="CRUD_EXP.CRUD_Exp.controller.UpdateExp">
+	<semantic:DetailPage id="page" title="Expedient {Codiexp} - {Objecte}" busy="{viewModel>/busy}">
+		<semantic:content>
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://begin" tooltip="{i18n>detailIconTabBarInfo}" text="Inici">
+						<IconTabBar id="idIconTabBarNoIcons" class="sapUiResponsiveContentPadding" backgroundDesign="Transparent" headerBackgroundDesign="Transparent" tabDensityMode="Compact" headerMode="Inline">
+							<items>
+								<IconTabFilter text="Dades principals">
+									<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="newEntitySimpleForm" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="4" minWidth="1024">
+										<f:content>
+											<Label text="Estat"/>
+										    <Select xmlns:sap.ui.core="sap.ui.core" id="selectestat" selectedKey="{Estat}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" items="{/ValuesEstatsSet}">
+										        <items>
+										        	<sap.ui.core:ListItem text="{Descrip}" key="{Estat}"/>
+										        </items>
+										    </Select>								
+											<Label text="Objecte"/>
+											<TextArea id="area0" cd:w5g.dt.context="/ExpedientSet" value="{Objecte}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>								
+											<Label text="Centre"/>
+											<Text text="{Descrcentre}" id="CentreText"/>
+											<Label text="Tipus d'expedient"/>
+											<Text id="Tipexp_id" text="{Descrtipexp}" cd:w5g.dt.context="/ExpedientSet"/>
+											<Label text="Modalitat"/>
+											<Text id="Modalit" text="{Descrmodali}" cd:w5g.dt.context="/ExpedientSet"/>
+											<Label text="Procediment"/>
+											<Text text="{Descrproced}"/>
+											<Label text="Simplificat"/>
+											<CheckBox name="Simplifi" selected="{ path: 'Simplifi'}" id="Simplifi_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Simplificat abreujat"/>
+											<CheckBox name="Simpabre" selected="{ path: 'Simpabre'}" id="Simpabre_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Acord marc relacionat"/>
+											<Text text="{Acordmr}" id="AcordMarcaRel"/>
+											<Label text="Supòsit de negociat"/>
+											<Text id="Suposit" text="{Descrsuposit}"/>
+											<Label text="Mesures de gestió eficient"/>
+											<CheckBox name="Mgestefi" selected="{ path: 'Mgestefi'}" id="Mgestefi_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Anticipat de despesa"/>
+											<CheckBox name="Anticipa" selected="{ path: 'Anticipa'}" id="Anticipa_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Tipus de contracte"/>
+											<Text id="Tipcontr" text="{Descrtipcont}"/>
+											<Label text="Subministraments homologats"/>
+											<CheckBox name="Subhomol" selected="{ path: 'Subhomol'}" id="Subhomol_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Suministraments agregats"/>
+											<CheckBox name="Subagreg" selected="{ path: 'Subagreg'}" id="Subagreg_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Subtipus de contracte"/>
+											<Text id="Subtipco" text="{Descrsubtip}"/>
+										</f:content>
+									</f:SimpleForm>
+								</IconTabFilter>
+								<IconTabFilter text="Imports">
+									<IconTabBar id="idIconTabBarNoIconsImports" class="sapUiResponsiveContentPadding" backgroundDesign="Transparent" headerBackgroundDesign="Transparent" tabDensityMode="Compact" headerMode="Inline">
+										<items>
+											<IconTabFilter text="Imports">
+												<f:SimpleForm class="editableForm" columnsL="2" columnsM="2" editable="true" emptySpanL="0" emptySpanM="0" id="importsIni" labelSpanL="4" labelSpanM="4" layout="ResponsiveGridLayout" maxContainerCols="4">
+													<f:content>
+														<Label text="Pressupost de licitació total (sense IVA)"/>
+														<Input name="Preslic" id="Preslic_id" value="{path: 'Preslic', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:12, scale:2, nullable:false } }" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onPresLicIVA"/>
+														<Label text="Tipus d'IVA"/>
+													    <Select xmlns:sap.ui.core="sap.ui.core" id="Tipiva" selectedKey="{Ivalicit}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" items="{/ValuesIVASet}" change="_onPresLicIVA">
+													        <items>
+													        	<sap.ui.core:ListItem text="{Descrip}" key="{Indiva}"/>
+													        </items>
+													    </Select>								
+														<Label text="Pressupost de licitació total (amb IVA)"/>
+														<Input name="Presliciva" id="Presliciva_id" value="{ path: 'Presliciva', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:12, scale:2, nullable:false } }" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+														<Label text="Moneda"/>
+													    <Select xmlns:sap.ui.core="sap.ui.core" id="Moneda" selectedKey="{Moneda}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" items="{/ValuesMonedaSet}">
+													        <items>
+													        	<sap.ui.core:ListItem text="{Waers} - {Ltext}" key="{Waers}"/>
+													        </items>
+													    </Select>											
+														<Label text="Plurianual"/>
+														<CheckBox name="Plurianu" selected="{ path: 'Plurianu'}" id="Plurianu_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+														<Label text="Revisió de preus"/>
+													    <Select xmlns:sap.ui.core="sap.ui.core" id="Revpreus_id" selectedKey="{Revpreus}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" items="{/ValuesRevPreusSet}">
+													        <items>
+													        	<sap.ui.core:ListItem text="{Descrip}" key="{Revpreus}"/>
+													        </items>
+													    </Select>
+													</f:content>
+												</f:SimpleForm>
+											</IconTabFilter>
+											<IconTabFilter text="Anualitats">
+												<t:Table id="AnuTable" rows="{ExpToAnu}" selectionMode="None" width="18rem">
+													<t:extension>
+														<OverflowToolbar class="sapMTBHeader-CTX" height="2rem">
+															<ToolbarSpacer/>
+															<Button icon="sap-icon://add" press="onAddAnu" type="Transparent" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+														</OverflowToolbar>
+													</t:extension>
+													<t:columns>
+														<t:Column width="3rem">
+															<t:template>
+																<Button press="handleDelAnu" icon="sap-icon://delete" type="Reject" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+															</t:template>
+														</t:Column>
+														<t:Column width="5rem">
+															<Label text="Exercici"/>
+															<t:template>
+																<Text text="{ path: 'Exercici', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:4, nullable:false } }"/>
+															</t:template>
+														</t:Column>
+														<t:Column width="10rem">
+															<Label text="Import licitació ({Moneda})"/>
+															<t:template>
+																<Input name="Implicit" id="Implicit_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" value="{ path: 'Implicit', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:12, scale:2, nullable:false } }"/>
+															</t:template>
+														</t:Column>
+													</t:columns>
+												</t:Table>
+											</IconTabFilter>
+											<IconTabFilter text="Garanties">
+												<f:SimpleForm class="editableForm" columnsL="2" columnsM="2" editable="true" emptySpanL="0" emptySpanM="0" id="importsGar" labelSpanL="4" labelSpanM="4" layout="ResponsiveGridLayout" maxContainerCols="4">
+													<f:content>
+														<Label text="Import garantia provisional"/>
+														<Input name="Impgprov" id="Impgprov_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" value="{ path: 'Impgprov', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:12, scale:2, nullable:false } }"/>
+														<Label text="Percentatge garantia provisional"/>
+														<Input name="Pergprov" id="Pergprov_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" value="{ path: 'Pergprov', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:3, nullable:false } }"/>
+														<Label text="Import garantia definitiva"/>
+														<Input name="Impgdefi" id="Impgdefi_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" value="{ path: 'Impgdefi', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:12, scale:2, nullable:false } }"/>
+														<Label text="Percentatge garantia definitiva"/>
+														<Input name="Pergdefi" id="Pergdefi_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" value="{ path: 'Pergdefi', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:3, nullable:false } }"/>
+														<Label text="Eximit de garantia"/>
+														<CheckBox name="Eximit" selected="{ path: 'Eximgara'}" id="Eximgara_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+													</f:content>
+												</f:SimpleForm>
+											</IconTabFilter>
+										</items>
+									</IconTabBar>
+								</IconTabFilter>								
+								<IconTabFilter text="Altres dades">
+									<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="altres" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="4" minWidth="1024">
+										<f:content>
+											<Label text="Numero invitacions"/>
+											<Input name="Numinvit" id="Numinvit_id" value="{ path: 'Numinvit', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:2, nullable:false } }" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Criteri de valoració"/>
+											<Select xmlns:sap.ui.core="sap.ui.core" id="Critvalo" selectedKey="{Critvalo}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" items="{/ValuesCritValSet}">
+										        <items>
+										        	<sap.ui.core:ListItem text="{Descrip}" key="{Critvalo}"/>
+										        </items>
+										    </Select>								
+											<Label text="Criteri d'adjudicació"/>
+											<Select xmlns:sap.ui.core="sap.ui.core" id="Critadju" selectedKey="{Critadju}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" items="{/ValuesCritAdjSet}">
+										        <items>
+										        	<sap.ui.core:ListItem text="{Descrip}" key="{Critadju}"/>
+										        </items>
+										    </Select>								
+											<Label text="Tipus de tramitació"/>
+											<Select xmlns:sap.ui.core="sap.ui.core" id="Tiptrami" selectedKey="{Tiptrami}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" items="{/ValuesTipTramSet}">
+										        <items>
+										        	<sap.ui.core:ListItem text="{Descrip}" key="{Tiptrami}"/>
+										        </items>
+										    </Select>								
+											<Label text="Modalitat de determinació de preus"/>
+											<Select xmlns:sap.ui.core="sap.ui.core" id="Moddetpr" selectedKey="{Moddetpr}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" items="{/ValuesModPreuSet}">
+										        <items>
+										        	<sap.ui.core:ListItem text="{Descrip}" key="{Moddetpr}"/>
+										        </items>
+										    </Select>								
+											<Label text="Codi antic de l'expedient"/>
+											<Input name="Codiantic" id="Codiantic_id" value="{ path: 'Codiantic', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:25, nullable:false } }" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Lloc d'execució"/>
+											<Select xmlns:sap.ui.core="sap.ui.core" id="Llocexec_id" selectedKey="{Llocexec}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" items="{/ValuesLlocExecSet}">
+										        <items>
+										        	<sap.ui.core:ListItem text="{Descrip}" key="{Llocexec}"/>
+										        </items>
+										    </Select>								
+											<Label text="Pais origen"/>
+											<Select xmlns:sap.ui.core="sap.ui.core" id="Paisorig_id" selectedKey="{Paisorig}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" items="{/ValuesPaisosSet}">
+										        <items>
+										        	<sap.ui.core:ListItem text="{Landx50}" key="{Land1}"/>
+										        </items>
+										    </Select>								
+										</f:content>
+									</f:SimpleForm>
+								</IconTabFilter>
+								<IconTabFilter text="Indicadors">
+									<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="indicadors" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="4" minWidth="1024">
+										<f:content>
+											<Label text="Codi CPV"/>
+											<Text id="CodiCPV_id" text="{Descrcpv}" cd:w5g.dt.context="/ExpedientSet" width="100%"/>
+											<Button id="ChangeCPV" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" icon="sap-icon://share" press="onChangeCPV">
+												<layoutData>
+													<l:GridData span="XL2 L1 M3 S4"/>
+												</layoutData>
+											</Button>
+											<Label text="Clàusula social"/>
+											<Select xmlns:sap.ui.core="sap.ui.core" id="Clausula" selectedKey="{Clausoci}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" items="{/ValuesClauSocSet}">
+										        <items>
+										        	<sap.ui.core:ListItem text="{Descrip}" key="{Clausoci}"/>
+										        </items>
+										    </Select>								
+											<Label text="Reserva social"/>
+											<Select xmlns:sap.ui.core="sap.ui.core" id="Resesoci" selectedKey="{Resesoci}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" items="{/ValuesResSocSet}">
+										        <items>
+										        	<sap.ui.core:ListItem text="{Descrip}" key="{Resesoci}"/>
+										        </items>
+										    </Select>								
+											<Label text="Compra innovadora"/>
+											<Select xmlns:sap.ui.core="sap.ui.core" id="Cinnov" selectedKey="{Cinnov}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" items="{/ValuesComInnSet}">
+										        <items>
+										        	<sap.ui.core:ListItem text="{Descrip}" key="{Cinnov}"/>
+										        </items>
+										    </Select>								
+											<Label text="Classificació empresarial"/>
+											<Input name="Clasempr" id="Clasempr_id" value="{ path: 'Clasempr', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:255, nullable:false } }" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Codi producte"/>
+											<Select xmlns:sap.ui.core="sap.ui.core" id="Codiprod_id" selectedKey="{Codiprod}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" items="{/ValuesCodProdSet}">
+										        <items>
+										        	<sap.ui.core:ListItem text="{Descrip}" key="{Codiprod}"/>
+										        </items>
+										    </Select>								
+											<Label text="Contractació conjunta"/>
+											<CheckBox name="Contconj" selected="{ path: 'Contconj'}" id="Contconj_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Estudis i dictàmens"/>
+											<CheckBox name="Estudict" selected="{ path: 'Estudict'}" id="Estudict_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Subcontractació"/>
+											<CheckBox name="Subcontr" selected="{ path: 'Subcontr'}" id="Subcontr_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Variants"/>
+											<CheckBox name="Variants" selected="{ path: 'Variants'}" id="Variants_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<!--<Label text="Pròrroga"/>-->
+											<!--<CheckBox name="Prorroga" selected="{ path: 'Prorroga'}" id="Prorroga_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" visible="true"/>-->
+											<Label text="Informació complementària sobre la pròrroga"/>
+											<TextArea id="Infprorr_id" value="{Infprorr}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" visible="{Prorroga}"/>
+										</f:content>
+									</f:SimpleForm>
+								</IconTabFilter>
+								<IconTabFilter text="Criteris de solvència" id="CriSol_id">
+									<t:Table rows="{ExpToCri}" selectionMode="None" rowHeight="150" columnHeaderHeight="20">
+										<t:extension>
+											<OverflowToolbar class="sapMTBHeader-CTX" height="2rem">
+												<ToolbarSpacer/>
+												<Button icon="sap-icon://add" press="onAddCri" type="Transparent" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											</OverflowToolbar>
+										</t:extension>
+										<t:columns>
+											<t:Column width="3rem">
+												<t:template>
+													<Button press="handleDelCri" icon="sap-icon://delete" type="Reject" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+												</t:template>
+											</t:Column>
+											<t:Column width="13rem">
+												<Label text="Tipus"/>
+												<t:template>
+													<Select selectedKey="{Tipus}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}">
+														<items>
+												            <core:ListItem key="" text=""/>
+												            <core:ListItem key="EF" text="Econòmica i financera"/>
+												            <core:ListItem key="TP" text="Tècnica i professional"/>
+														</items>
+													</Select>
+												</t:template>
+											</t:Column>
+											<t:Column>
+												<Label text="Mitjà"/>
+												<t:template>
+													<TextArea name="Mitja" id="Mitja_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" value="{ path: 'Mitja', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:50, nullable:false } }" width="100%" height="150px"/>
+												</t:template>
+											</t:Column>
+											<t:Column>
+												<Label text="Descripció"/>
+												<t:template>
+													<TextArea name="Descrip" id="Descrip_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" width="100%" height="150px" value="{ path: 'Descrip', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:100, nullable:false } }"/>
+												</t:template>
+											</t:Column>
+											<t:Column>
+												<Label text="Observacions"/>
+												<t:template>
+													<TextArea name="Observ" id="Observ_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" width="100%" height="150px" value="{ path: 'Observ', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:255, nullable:false } }"/>
+												</t:template>
+											</t:Column>
+										</t:columns>
+									</t:Table>									
+								</IconTabFilter>
+								<IconTabFilter text="Presentació ofertes">
+									<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="Ofertes" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="4" minWidth="1024">
+										<f:content>
+											<Label text="Accés exclusiu"/>
+											<CheckBox name="Acceexcl" selected="{ path: 'Acceexcl'}" id="Acceexcl_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Data límit presentació d'ofertes"/>
+											<DatePicker name="Dlimpres" value="{ path: 'Dlimpres', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dlimpres_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+											<Label text="Hora límit presentació d'ofertes"/>
+											<TimePicker id="Hlimpres" value="{path: 'Hlimpres', type: 'sap.ui.model.odata.type.Time'}" support2400="true" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Lloc presentació d'ofertes"/>
+											<Input name="Llimpres" id="Llimpres_id" value="{ path: 'Llimpres', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:75, nullable:false } }" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Modalitat de recepció d'ofertes"/>
+										    <Select xmlns:sap.ui.core="sap.ui.core" id="Modrece" selectedKey="{Modrece}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}">
+										        <items>
+										            <sap.ui.core:ListItem text="Electrònica" key="E"/>
+										            <sap.ui.core:ListItem text="Física" key="F"/>
+									        	</items>
+									        </Select>
+										</f:content>
+									</f:SimpleForm>
+								</IconTabFilter>
+								<IconTabFilter text="Dates">
+									<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="Dates" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="4" minWidth="1024">
+										<f:content>
+											<Label text="Data d'alta"/>
+											<Text id="Datalta" text="{path:'Datalta', type:'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true}}"/>
+											<Label text="Data última modificació"/>
+											<Text id="Datmod" text="{path:'Datmod', type:'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true}}"/>
+											<Label text="Data d'inici"/>
+											<DatePicker name="Datinici" value="{ path: 'Datinici', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Datinici_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+											<Label text="Data de l'informe justificatiu"/>
+											<DatePicker name="Datinfjur" value="{ path: 'Datinfjur', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Datinfjur_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+											<Label text="Data de fiscalització"/>
+											<DatePicker name="Datfisca" value="{ path: 'Datfisca', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Datfisca_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+											<Label text="Data d'aprovació"/>
+											<DatePicker name="Dataprov" value="{ path: 'Dataprov', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dataprov_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+											<Label text="Durada del contracte"/>
+											<Input name="Durcontr" id="Durcontr_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" value="{ path: 'Durcontr', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:3, nullable:false } }" change="_onDurada"/>
+											<Select xmlns:sap.ui.core="sap.ui.core" id="Durcterm_id" selectedKey="{Durcterm}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onDurada">
+										        <items>
+													<sap.ui.core:ListItem text="" key=""/>
+													<sap.ui.core:ListItem text="Dia/es" key="D"/>
+													<sap.ui.core:ListItem text="Mes/os" key="M"/>
+													<sap.ui.core:ListItem text="Any/s" key="A"/>
+												</items>
+									        </Select>					
+										</f:content>
+									</f:SimpleForm>
+								</IconTabFilter>
+								<IconTabFilter text="Meses (assistents)" id="tabMeses_id">
+									<t:Table rows="{ExpToAssM}" title="Meses" selectionMode="None">
+										<t:extension>
+											<OverflowToolbar class="sapMTBHeader-CTX" height="2rem">
+												<ToolbarSpacer/>
+												<Button icon="sap-icon://add" press="onAddMesa" type="Transparent" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											</OverflowToolbar>
+										</t:extension>
+										<t:columns>
+											<t:Column width="4rem">
+												<t:template>
+													<Button press="handleDelMesa" icon="sap-icon://delete" type="Reject" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+												</t:template>
+											</t:Column>
+											<t:Column width="12rem">
+												<Label text="Rol"/>
+												<t:template>
+													<Select selectedKey="{Mesrol}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}">
+														<items>
+												            <core:ListItem key="" text=""/>
+												            <core:ListItem key="PR" text="President"/>
+												            <core:ListItem key="RT" text="Representant intervenció"/>
+												            <core:ListItem key="RJ" text="Representant jurídic"/>
+												            <core:ListItem key="SE" text="Secretari"/>
+												            <core:ListItem key="VO" text="Vocal"/>
+														</items>
+													</Select>
+												</t:template>
+											</t:Column>
+											<t:Column>
+												<Label text="Nom i cognoms"/>
+												<t:template>
+													<Input value="{Mesnom}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+												</t:template>
+											</t:Column>
+											<t:Column>
+												<Label text="Càrrec"/>
+												<t:template>
+													<Input value="{Mescarre}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+												</t:template>
+											</t:Column>					
+											<t:Column>
+												<Label text="Correu electrònic"/>
+												<t:template>
+													<Input value="{Mescorre}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+												</t:template>
+											</t:Column>					
+										</t:columns>
+									</t:Table>									
+								</IconTabFilter>
+								<IconTabFilter text="Observacions">
+									<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="ObsIni_id" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="4" minWidth="1024">
+										<f:content>
+											<Label text="Observacions"/>
+											<TextArea id="Obsinici" cd:w5g.dt.context="/ExpedientSet" value="{Obsinici}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" height="400px"/>
+										</f:content>
+									</f:SimpleForm>
+								</IconTabFilter>
+							</items>
+						</IconTabBar>
+					</IconTabFilter>
+					<IconTabSeparator icon=""/>
+					<IconTabFilter id="iconTabBarLic" icon="sap-icon://task" text="Licitació">
+						<IconTabBar id="idIconTabBarNoIcons2" class="sapUiResponsiveContentPadding" backgroundDesign="Transparent" headerBackgroundDesign="Transparent" headerMode="Inline" tabDensityMode="Compact">
+							<items>
+								<IconTabFilter text="Dades licitació">
+									<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="Licita" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="4" minWidth="1024">
+										<f:content>
+											<Label text="Data invitació"/>
+											<DatePicker name="Datinvit" value="{path: 'Datinvit', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Datinvit_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+											<Label text="Data publicació anunci licitació BOE"/>
+											<DatePicker name="Dpliboe" value="{path: 'Dpliboe', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dpliboe_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+											<Label text="Import anunci licitació BOE"/>
+											<Input name="Impliboe" id="Impliboe_id" value="{ path: 'Impliboe', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:12, scale:2, nullable:false } }" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Data publicació anunci licitació DOGC"/>
+											<DatePicker name="Dplidogc" value="{ path: 'Dplidogc', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dplidogc_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+											<Label text="Import anunci licitació DOGC"/>
+											<Input name="Implidogc" id="Implidogc_id" value="{ path: 'Implidogc', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:12, scale:2, nullable:false } }" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Data publicació anunci licitació DOUE"/>
+											<DatePicker name="Dplidoue" value="{ path: 'Dplidoue', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dplidoue_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+											<Label text="Data publicació anunci licitació PSCP"/>
+											<DatePicker name="Dplipscp" value="{ path: 'Dplipscp', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dplipscp_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+											<Label text="Data i hora obertura sobre administratiu"/>
+											<DatePicker name="Datosoba" value="{ path: 'Datosoba', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Datosoba_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+											<TimePicker id="Horosoba" value="{path: 'Horosoba', type: 'sap.ui.model.odata.type.Time'}" support2400="true" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Data i hora obertura sobre tècnic"/>
+											<DatePicker name="Datosobt" value="{ path: 'Datosobt', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Datosobt_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+											<TimePicker id="Horosobt" value="{path: 'Horosobt', type: 'sap.ui.model.odata.type.Time'}" support2400="true" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Lloc obertura pública sobre tècnic"/>
+											<Input name="Lloosobt" id="Lloosobt_id" value="{ path: 'Lloosobt', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:150, nullable:false } }" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Data i hora obertura sobre econòmic"/>
+											<DatePicker name="Datosobe" value="{ path: 'Datosobe', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Datosobe_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+											<TimePicker id="Horosobe" value="{path: 'Horosobe', type: 'sap.ui.model.odata.type.Time'}" support2400="true" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Lloc obertura pública sobre econòmic"/>
+											<Input name="Lloosobe" id="Lloosobe_id" value="{ path: 'Lloosobe', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:150, nullable:false } }" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<!--<Label text="Data de fi de visualització licitació PSCP"/>-->
+											<!--<DatePicker name="Dfilipscp" value="{ path: 'Dfilipscp', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dfilipscp_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>-->
+										</f:content>
+									</f:SimpleForm>
+								</IconTabFilter>
+								<IconTabFilter text="Observacions">
+									<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="ObsLic_id" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="4" minWidth="1024">
+										<f:content>
+											<Label text="Observacions"/>
+											<TextArea id="Obslicit" cd:w5g.dt.context="/ExpedientSet" value="{Obslicit}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" height="400px"/>
+										</f:content>
+									</f:SimpleForm>
+								</IconTabFilter>
+							</items>
+						</IconTabBar>
+					</IconTabFilter>
+					<IconTabFilter id="OfertesTab" text="Ofertes" icon="sap-icon://customer-financial-fact-sheet" iconColor="Positive" count="{viewModel>/numOfer}">
+						<Button xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:smart="sap.ui.comp.smartfield" xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns="sap.m" id="button0" icon="sap-icon://add" type="Emphasized" press="onAddOferta" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" text="Afegir oferta"/>
+						<List id="list2" items="{ExpToOfe}" noDataText="No existeixen ofertes" updateFinished="onOferListUpdateFinished" mode="{viewModel>/enableDel}" delete="onDelOfer">
+							<ObjectListItem title="{Raosoci}" type="Navigation" press="onSelOferta" id="ofertaList2" number="{parts:[{path:'Impofert'},{path:'Moneda'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false}}" numberUnit="{Moneda}" intro="{Codiofer}" showMarkers="true" markFavorite="{Adjudicat}">
+							</ObjectListItem>
+						</List> 
+					</IconTabFilter>
+					<IconTabSeparator icon="sap-icon://open-command-field" id="LicAdjSep_id"/>
+					<IconTabFilter text="Lots" icon="sap-icon://folder" id="filter0" cd:w5g.dt.context="/ExpedientSet" count="{Numlots}" visible="{Lots}" iconColor="Critical">
+						<List id="listLot" items="{ExpToLot}" updateFinished="onListUpdateFinished">
+							<ObjectListItem title="{Objecte}" type="Navigation" press="onSelLot" id="LotList2" number="{parts:[{path:'Preslic'},{path:'Moneda'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false}}" numberUnit="{Moneda}" intro="{Codilot}">
+							</ObjectListItem>
+						</List> 
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarAdjFor" icon="sap-icon://decision" text="Adj. i Form." iconColor="Critical">
+						<IconTabBar id="idIconTabBarNoIcons3" class="sapUiResponsiveContentPadding" backgroundDesign="Transparent" headerBackgroundDesign="Transparent" headerMode="Inline" tabDensityMode="Compact">
+							<items>
+								<IconTabFilter text="Adjudicació(dates)">
+									<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="newEntitySimpleFormAdjud" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="4" minWidth="1024">
+										<f:content>
+											<Label text="Data d'adjudicació"/>
+											<DatePicker name="Datadjud" value="{ path: 'Datadjud', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Datadjud_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Data publicació RPC"/>
+											<DatePicker name="Dpublrpc" value="{ path: 'Dpublrpc', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dpublrpc_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+											<Label text="Data publicació anunci adjudicació BOE"/>
+											<DatePicker name="Dpadboe" value="{ path: 'Dpadboe', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dpadboe_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+											<Label text="Data publicació anunci adjudicació DOGC"/>
+											<DatePicker name="Dpaddogc" value="{ path: 'Dpaddogc', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dpaddogc_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+											<Label text="Data publicació anunci adjudicació DOUE"/>
+											<DatePicker name="Dpaddoue" value="{ path: 'Dpaddoue', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dpaddoue_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+											<Label text="Data publicació anunci adjudicació PSCP"/>
+											<DatePicker name="Dpadpscp" value="{ path: 'Dpadpscp', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dpadpscp_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+											<!--<Label text="Data de fi de visualització adjudicació PSCP"/>-->
+											<!--<DatePicker name="Dfiadpscp" value="{ path: 'Dfiadpscp', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dfiadpscp_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>-->
+											<Label text="Data de notificació"/>
+											<DatePicker name="Datnotif" value="{ path: 'Datnotif', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Datnotif_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+										</f:content>
+									</f:SimpleForm>
+								</IconTabFilter>
+								<IconTabFilter text="Adjudicació(imports)">
+									<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="newEntitySimpleFormAdjud2" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="4" minWidth="1024">
+										<f:content>
+											<Label text="Import adjudicació (sense IVA)"/>
+											<Input name="Impadjud" id="Impadjud_id" value="{ path: 'Impadjud', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:12, scale:2, nullable:false } }" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onAdjIVA"/>
+											<Label text="Tipus d'IVA"/>
+										    <Select xmlns:sap.ui.core="sap.ui.core" id="Ivaadjud" selectedKey="{Ivaadjud}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" items="{/ValuesIVASet}" change="_onAdjIVA">
+										        <items>
+										        	<sap.ui.core:ListItem text="{Descrip}" key="{Indiva}"/>
+										        </items>
+										    </Select>								
+											<Label text="Import adjudicació (amb IVA)"/>
+											<Input name="Impadjiva" id="Impadjiva_id" value="{ path: 'Impadjiva', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:12, scale:2, nullable:false } }" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Import anunci adjudicació BOE"/>
+											<Input name="Impadboe" id="Impadboe_id" value="{ path: 'Impadboe', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:12, scale:2, nullable:false } }" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Import anunci adjudicació DOGC"/>
+											<Input name="Impaddogc" id="Impaddogc_id" value="{ path: 'Impaddogc', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:12, scale:2, nullable:false } }" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Import anunci formalització DOGC"/>
+											<Input name="Impfodogc" id="Impfodogc_id" value="{ path: 'Impfodogc', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:12, scale:2, nullable:false } }" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+										</f:content>
+									</f:SimpleForm>
+								</IconTabFilter>
+								<IconTabFilter text="Formalització" id="FormTab_id">
+									<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="newEntitySimpleFormForm" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="4" minWidth="1024">
+										<f:content>
+											<Label text="Data de formalització"/>
+											<DatePicker name="Datforma" value="{ path: 'Datforma', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Datforma_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+											<Label text="Data publicació anunci formalització BOE"/>
+											<DatePicker name="Dpfoboe" value="{ path: 'Dpfoboe', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dpfoboe_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+											<Label text="Import anunci formalització BOE"/>
+											<Input name="Impfoboe" id="Impfoboe_id" value="{ path: 'Impfoboe', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:12, scale:2, nullable:false } }" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+											<Label text="Data publicació anunci formalització DOGC"/>
+											<DatePicker name="Dpfodogc" value="{ path: 'Dpfodogc', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dpfodogc_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+											<Label text="Data publicació anunci formalització DOUE"/>
+											<DatePicker name="Dpfodoue" value="{ path: 'Dpfodoue', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dpfodoue_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+											<Label text="Data publicació anunci formalització PSCP"/>
+											<DatePicker name="Dpfopscp" value="{ path: 'Dpfopscp', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dpfopscp_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+											<!--<Label text="Data de fi de visualització formalització PSCP"/>-->
+											<!--<DatePicker name="Dfifopscp" value="{ path: 'Dfifopscp', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dfifopscp_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>-->
+										</f:content>
+									</f:SimpleForm>
+								</IconTabFilter>
+								<IconTabFilter text="Observacions">
+									<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="Obsajud_id" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="4" minWidth="1024">
+										<f:content>
+											<Label text="Observacions"/>
+											<TextArea id="Obsadjud" cd:w5g.dt.context="/ExpedientSet" value="{Obsadjud}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" height="400px"/>
+										</f:content>
+									</f:SimpleForm>
+								</IconTabFilter>
+							</items>
+						</IconTabBar>
+					<content/>
+					</IconTabFilter>
+					<IconTabSeparator icon="sap-icon://open-command-field" id="AdjExeSep_id"/>
+					<IconTabFilter id="iconTabBarExe" icon="sap-icon://action-settings" text="Execució" iconColor="Negative">
+						<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="newEntitySimpleFormExec" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="4" minWidth="1024">
+							<f:content>
+								<Label text="Data inici execució contracte inicial"/>
+								<DatePicker name="Diniexec" value="{ path: 'Diniexec', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Diniexec_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+								<Label text="Data finalització execució contracte inicial"/>
+								<DatePicker name="Dfinexec" value="{ path: 'Dfinexec', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dfinexec_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" change="_onCheckDate"/>
+								<!--<Label text="Romanent total"/>-->
+								<!--<Input name="Romatot" id="Romatot_id" value="{ path: 'Romatot', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:12, scale:2, nullable:false } }" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>-->
+								<Label text="Observacions"/>
+								<TextArea id="Obsexecu" cd:w5g.dt.context="/ExpedientSet" value="{Obsexecu}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" height="400px"/>
+							</f:content>
+						</f:SimpleForm>
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarFact" icon="sap-icon://cart" text="Factures" iconColor="Negative" count="{viewModel>/numFact}">
+						<List id="listFact" items="{ExpToFact}" noDataText="No hi han factures relacionades" mode="None" updateFinished="onFactListUpdateFinished">
+							<ObjectListItem type="Navigation" press="onSelFact" id="FactList" number="{parts:[{path:'ImportFactura'},{path:'Moneda'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false}}" numberUnit="{Moneda}" intro="{Document}" title="{Descripcio}">
+							</ObjectListItem>
+						</List> 
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarSC" icon="sap-icon://database" text="Sit.Cont." iconColor="Negative" count="{viewModel>/numSC}">
+						<Button xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:smart="sap.ui.comp.smartfield" xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns="sap.m" id="buttonSC" icon="sap-icon://add" type="Emphasized" press="onAddSC" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" text="Afegir situació contractual"/>
+						<List id="listSC" items="{ExpToSC}" noDataText="No existeixen situacions contractuals" updateFinished="onSCListUpdateFinished" mode="{viewModel>/enableDel}" delete="onDelSC">
+							<ObjectListItem title="{Descrtitol}" type="Navigation" press="onSelSC" id="SCList">
+							</ObjectListItem>
+						</List> 
+					</IconTabFilter>
+<!--					<IconTabSeparator icon="sap-icon://open-command-field" id="ExeFinSep_id"/>
+					<IconTabFilter id="iconTabBarFin" icon="sap-icon://message-success" text="Finalització" iconColor="Positive">
+						<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="newEntitySimpleFormFinal" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="4" minWidth="1024">
+							<f:content>
+								<Label text="Data de finalització"/>
+								<DatePicker name="Datfinal" value="{ path: 'Datfinal', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Datfinal_id" enabled="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+								<Label text="Observacions"/>
+								<TextArea id="Obsfinal" cd:w5g.dt.context="/ExpedientSet" value="{Obsfinal}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" height="400px"/>
+							</f:content>
+						</f:SimpleForm>
+					</IconTabFilter> -->
+					<IconTabFilter id="iconTabBarInt" icon="sap-icon://offsite-work" text="Integracions" iconColor="Negative">
+						<Button xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:smart="sap.ui.comp.smartfield" 
+								xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns="sap.m" id="buttonInt" icon="sap-icon://action" type="Emphasized" press="onAddIntegra" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" text="Llençar integració"/>						
+						<t:Table
+								id="tableIntegracions"
+								rows="{ExpToInt}"
+								selectionMode="None"
+								noData="No s'han fet integracions"
+								ariaLabelledBy="title">
+							<t:rowSettingsTemplate>
+								<t:RowSettings highlight="{Tipus}"/>
+							</t:rowSettingsTemplate> 
+							<t:columns>
+								<t:Column width="18rem">
+									<Label text="Resultat"/>
+									<t:template>
+										<Text text="{Resultat}"/>
+									</t:template>
+								</t:Column>
+								<t:Column width="7rem">
+									<Label text="Data"/>
+									<t:template>
+										<Text id="Datalta2" text="{path:'Datalta', type:'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true}}"/>
+									</t:template>
+								</t:Column>
+								<t:Column width="5rem">
+									<Label text="Hora"/>
+									<t:template>
+										<Text id="Horalta" text="{path:'Horalta', type:'sap.ui.model.odata.type.Time'}"/>
+									</t:template>
+								</t:Column>
+								<t:Column width="7rem">
+									<Label text="Integració"/>
+									<t:template>
+										<Text text="{Interfase} {Tippscp}"/>
+									</t:template>
+								</t:Column>
+								<t:Column>
+									<Label text="Missatge"/>
+									<t:template>
+										<TextArea name="Missatge" id="Missatge_id" enabled="false" width="100%" height="50px" value="{ path: 'Missatge', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:100, nullable:false } }"/>
+									</t:template>
+								</t:Column>
+							</t:columns>
+						</t:Table>
+					</IconTabFilter>
+					<IconTabSeparator icon=""/>
+					<IconTabFilter id="iconTabBarDocs" icon="sap-icon://attachment" tooltip="Documents" text="Documents" iconColor="Neutral" count="{viewModel>/numDocs}">
+						<Button xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:smart="sap.ui.comp.smartfield" xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns="sap.m" id="buttonDoc" icon="sap-icon://add" type="Emphasized" press="onAddDocument" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" text="Afegir document"/>
+						<List id="listDoc" backgroundDesign="Transparent" showSeparators="Inner" items="{ExpToDoc}" updateFinished="onDocListUpdateFinished" mode="{viewModel>/enableDel}" delete="onDelDoc" noDataText="No hi ha documents">
+							<ObjectListItem id="costAssignmentListItemPart" class="tecCostAssignmentsList" title="{Filename}" press="onSelDoc" type="Active" intro="{Mimetype}">
+							</ObjectListItem>
+						</List> 
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</semantic:content>
+		<semantic:editAction>
+			<semantic:EditAction id="edit" press="onEdit" visible="{= ${viewModel>/mode} === 'display'? true: false}"/>
+		</semantic:editAction>
+		<semantic:saveAction>
+			<semantic:SaveAction id="save" press="onSave" visible="{= ${viewModel>/mode} === 'edit'? true: false}"/>
+		</semantic:saveAction>
+		<semantic:cancelAction>
+			<semantic:CancelAction id="cancel" press="onCancel"/>
+		</semantic:cancelAction>
+	</semantic:DetailPage>
+</mvc:View>

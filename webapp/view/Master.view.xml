@@ -1,0 +1,130 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:semantic="sap.m.semantic" controllerName="CRUD_EXP.CRUD_Exp.controller.Master">
+	<semantic:MasterPage id="page" title="{masterView>/title}" navButtonPress="onNavBack" showNavButton="true">
+		<semantic:subHeader>
+			<Bar id="headerBar">
+				<contentMiddle>
+					<SearchField id="searchField" showRefreshButton="{= !${device>/support/touch} }" tooltip="{i18n>masterSearchTooltip}" width="100%" search="onSearch"/>
+				</contentMiddle>
+		
+				<contentRight>
+				    <Button xmlns="sap.m" id="button1" press="onFiltres" icon="sap-icon://filter"/>
+				    <Button xmlns="sap.m" id="butCleFil_id" icon="sap-icon://clear-filter" press="onClearFiltre" visible="false"/>
+				</contentRight>
+			</Bar>
+		</semantic:subHeader>
+		
+		<semantic:content>
+			<PullToRefresh id="pullToRefresh" refresh="onRefresh" showIcon="false" visible="{device>/support/touch}"/>
+			
+			<List id="list" items="{ path: '/ExpedientSet', sorter: { path: 'Objecte', descending: false }, groupHeaderFactory: '.createGroupHeader' }" 
+					busyIndicatorDelay="{masterView>/delay}" noDataText="{masterView>/noDataText}" mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" 
+					growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished" selectionChange="onSelectionChange" 
+					visible="{masterView>/isListVisible}">
+				<infoToolbar>
+					<Toolbar active="true" id="filterBar" visible="{masterView>/isFilterBarVisible}" press="onOpenViewSettings">
+						<Title id="filterBarLabel" text="{masterView>/filterBarLabel}"/>
+					</Toolbar>
+				</infoToolbar>
+				<items>
+					<ObjectListItem type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}" press="onSelectionChange" title="{Objecte}" intro="{Codiexp} - {Descrestat}"/>
+				</items>
+			</List>
+			
+			<f:SimpleForm 
+				class="editableForm" 
+				id="newEntitySimpleForm" 
+				columnsL="2" columnsM="2" 
+				editable="true" 
+				emptySpanL="4" emptySpanM="4" labelSpanL="3" labelSpanM="3" 
+				layout="ResponsiveGridLayout" maxContainerCols="4" 
+				visible="{masterView>/isFiltVisible}">
+				<f:content>
+					<Text text="Rang de dates"/>
+					<DateRangeSelection 
+						id="DRS2" dateValue="{path:'masterView>/dateValueDRS2', formatOptions: { UTC:true}}" 
+						secondDateValue="{path:'masterView>/secondDateValueDRS2', formatOptions: { UTC:true}}" change="handleChange"/>
+
+					<Text text="Centres" visible="{masterView>/isCenterFilterVisible}"/>
+					<MultiComboBox id="mcb_centres" 
+						items="{Centres>/}"
+						visible="{masterView>/isCenterFilterVisible}">
+						<core:Item key="{Centres>Centre}" text="{Centres>Descrip}"/>
+					</MultiComboBox>
+
+					<FlexBox
+						height="60px"
+						alignItems="End"
+						justifyContent="SpaceBetween">
+						<items>
+							<Text text="Estats"/>
+							<FlexBox
+								alignItems="Start"
+								justifyContent="End">
+								<items>
+									<Button icon="sap-icon://multiselect-all" type="Accept" press="handleEstatsAll"/>
+									<Button icon="sap-icon://multiselect-none" type="Reject" press="handleEstatsNone"/>
+								</items>
+							</FlexBox>
+						</items>
+					</FlexBox>
+
+					<MultiComboBox id="mcb_estats"
+						items="{Estats>/}">
+						<core:Item key="{Estats>Estat}" text="{Estats>Descrip}"/>
+					</MultiComboBox>
+
+					<FlexBox
+						height="60px"
+						alignItems="End"
+						justifyContent="SpaceBetween">
+						<items>
+							<Text text="Procediments"/>
+							<FlexBox
+								alignItems="Start"
+								justifyContent="End">
+								<items>
+									<Button icon="sap-icon://multiselect-all" type="Accept" press="handleProcedAll"/>
+									<Button icon="sap-icon://multiselect-none" type="Reject" press="handleProcedNone"/>
+								</items>
+							</FlexBox>
+						</items>
+					</FlexBox>
+					
+					<MultiComboBox id="mcb_proced"
+						items="{Proced>/}">
+						<core:Item key="{Proced>Procedim}" text="{Proced>Descrip}"/>
+					</MultiComboBox>
+
+					<FlexBox
+						height="60px"
+						alignItems="End"
+						justifyContent="SpaceBetween">
+						<items>
+							<Text text="Tipus de contracte"/>
+							<FlexBox
+								alignItems="Start"
+								justifyContent="End">
+								<items>
+									<Button icon="sap-icon://multiselect-all" type="Accept" press="handleTipContrAll"/>
+									<Button icon="sap-icon://multiselect-none" type="Reject" press="handleTipContrNone"/>
+								</items>
+							</FlexBox>
+						</items>
+					</FlexBox>
+		            
+					<MultiComboBox id="mcb_TipCont" 
+						items="{TipContr>/}">
+						<core:Item key="{TipContr>Tipcontr}" text="{TipContr>Descrip}"/>
+					</MultiComboBox>
+
+					<Button xmlns="sap.m" text="Aplicar filtres" id="button2" press="onAplFiltres" type="Emphasized"/>
+					<Button xmlns="sap.m" text="Cancel·lar" id="button3" press="onCanFiltres" type="Reject"/>
+				</f:content>
+			</f:SimpleForm>
+			
+		</semantic:content>
+		<semantic:customFooterContent>
+			<Button text="Nou expedient" icon="sap-icon://add" press="onAdd"/>
+		</semantic:customFooterContent>	
+	</semantic:MasterPage>
+</mvc:View>

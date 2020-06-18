@@ -1,0 +1,221 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:t="sap.ui.table" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:smart="sap.ui.comp.smartfield" xmlns="sap.m" controllerName="CRUD_EXP.CRUD_Exp.controller.SitCont">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" title="Situació Contractual {Tipsc} {Numsc}" busy="{viewModel>/busy}">
+		<semantic:content>
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter id="iconTabBarFilter1" tooltip="{i18n>detailIconTabBarInfo}" text="Inici" icon="sap-icon://message-information">
+						<f:SimpleForm id="General_Form" class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024">
+							<f:content>
+								<Label text="Tipus de situació contractual" required="true"/>
+							    <Select xmlns:sap.ui.core="sap.ui.core" id="Tipsc" selectedKey="{Tipsc}" change="onChangeTipSC">
+							        <items>
+							            <sap.ui.core:ListItem key="" text=""/>
+							            <sap.ui.core:ListItem key="CE" text="Cessió"/>
+							            <sap.ui.core:ListItem key="LC" text="Liquidació per compliment"/>
+							            <sap.ui.core:ListItem key="LR" text="Liquidació per resolució"/>
+							            <sap.ui.core:ListItem key="MO" text="Modificació"/>
+							            <sap.ui.core:ListItem key="PO" text="Pròrroga"/>
+							        </items>
+							    </Select>								
+								<Label text="Data de la Situació Contractual"/>
+								<DatePicker name="Dataprov" value="{ path: 'Dataprov', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dataprov_id" enabled="{= ${viewModel>/mode} === 'display'? false: true}"/>
+								<Label text="Data publicació PSCP"/>
+								<DatePicker name="Dpublpscp" value="{ path: 'Dpublpscp', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dpublpscp_id" enabled="{= ${viewModel>/mode} === 'display'? false: true}"/>
+								<Label text="Data publicació RPC"/>
+								<DatePicker name="Dpublrpc" value="{ path: 'Dpublrpc', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dpublrpc_id" enabled="{= ${viewModel>/mode} === 'display'? false: true}"/>
+							</f:content>
+						</f:SimpleForm>
+						<f:SimpleForm id="MO_Form" class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024" visible="false">
+							<f:content>
+								<Label text="Tipus de modificació"/>
+							    <Select xmlns:sap.ui.core="sap.ui.core" id="Tipmodif_id" selectedKey="{Tipmodif}" enabled="{= ${viewModel>/mode} === 'display'? false: true}">
+							        <items>
+							            <sap.ui.core:ListItem key="" text=""/>
+							            <sap.ui.core:ListItem key="AL" text="Altres modificacions"/>
+							            <sap.ui.core:ListItem key="CU" text="Variació del nombre d'unitats"/>
+							            <sap.ui.core:ListItem key="IN" text="Variació en les prestacions de l'objecte"/>
+							            <sap.ui.core:ListItem key="MP" text="Amb modificació de projecte"/>
+							            <sap.ui.core:ListItem key="SE" text="Sense efectes econòmics"/>
+							            <sap.ui.core:ListItem key="SS" text="Suspensió del contracte"/>
+							            <sap.ui.core:ListItem key="VT" text="Variació del termini d'execució"/>
+							        </items>
+							    </Select>								
+								<Label text="Causa de la modificació"/>
+							    <Select xmlns:sap.ui.core="sap.ui.core" id="Caumodif_id" selectedKey="{Caumodif}" enabled="{= ${viewModel>/mode} === 'display'? false: true}">
+							        <items>
+							            <sap.ui.core:ListItem key="" text=""/>
+							            <sap.ui.core:ListItem key="AD" text="Obres, subministraments o serveis addicionals"/>
+							            <sap.ui.core:ListItem key="CS" text="Circumstàncies sobrevingudes e imprevisibles"/>
+							            <sap.ui.core:ListItem key="MN" text="Modificacions no substancials"/>
+							            <sap.ui.core:ListItem key="PP" text="Previstes en plec"/>
+							            <sap.ui.core:ListItem key="RN" text="Retard per motius no imputables al contractista"/>
+							        </items>
+							    </Select>								
+								<Label text="Import de la modificació (sense IVA)"/>
+								<Input name="Impmodif" id="Impmodif_id" enabled="{= ${viewModel>/mode} === 'display'? false: true}" value="{ path: 'Impmodif', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:12, scale:2, nullable:false } }" change="_onModeIVA"/>
+								<Label text="Tipus d'IVA"/>
+							    <Select xmlns:sap.ui.core="sap.ui.core" id="Ivamodif" selectedKey="{Ivamodif}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" items="{/ValuesIVASet}" change="_onModeIVA">
+							        <items>
+							        	<sap.ui.core:ListItem text="{Descrip}" key="{Indiva}"/>
+							        </items>
+							    </Select>								
+								<Label text="Import de la modificació (amb IVA)"/>
+								<Input name="Impmodifiva" id="Impmodifiva_id" enabled="{= ${viewModel>/mode} === 'display'? false: true}" value="{ path: 'Impmodifiva', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:12, scale:2, nullable:false } }"/>
+								<Label text="Moneda"/>
+							    <Select xmlns:sap.ui.core="sap.ui.core" id="Moneda" selectedKey="{Moneda}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" items="{/ValuesMonedaSet}">
+							        <items>
+							        	<sap.ui.core:ListItem text="{Waers} - {Ltext}" key="{Waers}"/>
+							        </items>
+							    </Select>											
+							</f:content>
+						</f:SimpleForm>
+						<f:SimpleForm id="CE_Form" class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024" visible="false">
+							<f:content>
+								<Label text="Codi de NIF nou"/>
+								<Input name="Ncodnif" id="Ncodnif_id" enabled="{= ${viewModel>/mode} === 'display'? false: true}" value="{ path: 'Ncodnif', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:20, nullable:false } }"/>
+								<Label text="Raó social nova"/>
+								<Input name="Nraosoci" id="Nraosoci_id" enabled="{= ${viewModel>/mode} === 'display'? false: true}" value="{ path: 'Nraosoci', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:50, nullable:false } }"/>
+								<Label text="UTE"/>
+								<CheckBox name="Ute" selected="{ path: 'Ute'}" id="Ute_id" enabled="{= ${viewModel>/mode} === 'display'? false: true}" visible="true"/>
+								<Label text="Pais"/>
+								<Select xmlns:sap.ui.core="sap.ui.core" id="Pais_id" selectedKey="{Pais}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" items="{/ValuesPaisosSet}">
+							        <items>
+							        	<sap.ui.core:ListItem text="{Landx50}" key="{Land1}"/>
+							        </items>
+							    </Select>								
+								<Label text="Codi extern de licitador"/>
+								<Input name="Codextli" id="Codextli_id" enabled="{= ${viewModel>/mode} === 'display'? false: true}" value="{ path: 'Codextli', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:15, nullable:false } }"/>
+								<Label text="Import restant (sense IVA)"/>
+								<Input name="Imprest" id="Imprest_id" enabled="{= ${viewModel>/mode} === 'display'? false: true}" value="{ path: 'Imprest', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:12, scale:2, nullable:false } }" change="_onRestIVA"/>
+								<Label text="Tipus d'IVA import restant"/>
+							    <Select xmlns:sap.ui.core="sap.ui.core" id="Ivarest" selectedKey="{Ivarest}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" items="{/ValuesIVASet}" change="_onRestIVA">
+							        <items>
+							        	<sap.ui.core:ListItem text="{Descrip}" key="{Indiva}"/>
+							        </items>
+							    </Select>								
+								<Label text="Import restant (amb IVA)"/>
+								<Input name="Imprestiva" id="Imprestiva_id" enabled="{= ${viewModel>/mode} === 'display'? false: true}" value="{ path: 'Imprestiva', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:12, scale:2, nullable:false } }"/>
+								<Label text="Moneda"/>
+							    <Select xmlns:sap.ui.core="sap.ui.core" id="Moneda2" selectedKey="{Moneda}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" items="{/ValuesMonedaSet}">
+							        <items>
+							        	<sap.ui.core:ListItem text="{Waers} - {Ltext}" key="{Waers}"/>
+							        </items>
+							    </Select>											
+							</f:content>
+						</f:SimpleForm>
+						<f:SimpleForm id="PR_Form" class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024" visible="false">
+							<f:content>
+								<Label text="Data inici pròrroga"/>
+								<DatePicker name="Dinipror" value="{ path: 'Dinipror', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dinipror_id" enabled="{= ${viewModel>/mode} === 'display'? false: true}"/>
+								<Label text="Data finalització pròrroga"/>
+								<DatePicker name="Dfinpror" value="{ path: 'Dfinpror', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dfinpror_id" enabled="{= ${viewModel>/mode} === 'display'? false: true}"/>
+							</f:content>
+						</f:SimpleForm>
+						<f:SimpleForm id="LI_Form" class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024" visible="false">
+							<f:content>
+								<Label text="Causa de la liquidació per resolució"/>
+							    <Select xmlns:sap.ui.core="sap.ui.core" id="Cauliqr_id" selectedKey="{Cauliqr}" enabled="{= ${viewModel>/mode} === 'display'? false: true}">
+							        <items>
+							            <sap.ui.core:ListItem key="" text=""/>
+							            <sap.ui.core:ListItem key="A" text="La mort o incapacitat sobrevinguda del contractista individual o l'extinció de la personalitat jurídica de la societat contracti"/>
+							            <sap.ui.core:ListItem key="B" text="Declaració de concurs o d'insolvència en qualsevol"/>
+							            <sap.ui.core:ListItem key="C" text="El mutu acord entre l'Administració i el contractista"/>
+							            <sap.ui.core:ListItem key="D" text="La no formalització del contracte en termini"/>
+							            <sap.ui.core:ListItem key="E" text="La demora en el compliment dels terminis per part delcontratista"/>
+							            <sap.ui.core:ListItem key="F" text="La demora en el pagament per part de l'Administració"/>
+							            <sap.ui.core:ListItem key="G" text="L'incompliment de les restants obligacions contractuals essencials, qualificades com a tals en els plecs o en el contracte"/>
+							            <sap.ui.core:ListItem key="H" text="Les establertes expressament en el contracte"/>
+							            <sap.ui.core:ListItem key="I" text="Les que s'assenyalin específicament per a cada categoria decontrato en aquesta Llei"/>
+							            <sap.ui.core:ListItem key="Z" text="Altres"/>
+							        </items>
+							    </Select>								
+								<Label text="Data de recepció final"/>
+								<DatePicker name="Drecfin" value="{ path: 'Drecfin', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Drecfin_id" enabled="{= ${viewModel>/mode} === 'display'? false: true}"/>
+								<Label text="Import liquidació (sense IVA)"/>
+								<Input name="Impliqui" id="Impliqui_id" enabled="{= ${viewModel>/mode} === 'display'? false: true}" value="{ path: 'Impliqui', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:12, scale:2, nullable:false } }" change="_onLiqIVA"/>
+								<Label text="Tipus d'IVA liquidació"/>
+							    <Select xmlns:sap.ui.core="sap.ui.core" id="Ivaliqui" selectedKey="{Ivaliqui}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" items="{/ValuesIVASet}" change="_onLiqIVA">
+							        <items>
+							        	<sap.ui.core:ListItem text="{Descrip}" key="{Indiva}"/>
+							        </items>
+							    </Select>								
+								<Label text="Import liquidació (amb IVA)"/>
+								<Input name="Impliquiiva" id="Impliquiiva_id" enabled="{= ${viewModel>/mode} === 'display'? false: true}" value="{ path: 'Impliquiiva', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:12, scale:2, nullable:false } }"/>
+							    <Select xmlns:sap.ui.core="sap.ui.core" id="Moneda3" selectedKey="{Moneda}" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" items="{/ValuesMonedaSet}">
+							        <items>
+							        	<sap.ui.core:ListItem text="{Waers} - {Ltext}" key="{Waers}"/>
+							        </items>
+							    </Select>											
+								<Label text="Incautació garantia definitiva"/>
+								<CheckBox name="Incgdefi" selected="{ path: 'Incgdefi'}" id="Incgdefi_id" enabled="{= ${viewModel>/mode} === 'display'? false: true}"/>
+							</f:content>
+						</f:SimpleForm>
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarInt" icon="sap-icon://offsite-work" text="Integracions" iconColor="Negative">
+						<Button xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:smart="sap.ui.comp.smartfield" 
+								xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns="sap.m" id="buttonInt" icon="sap-icon://action" type="Emphasized" press="onAddIntegra" enabled="{= ${viewModel>/mode} === 'edit'? true: false}" text="Llençar integració"/>						
+						<t:Table
+								id="tableIntegracions"
+								rows="{SCToInt}"
+								selectionMode="None"
+								noData="No s'han fet integracions"
+								ariaLabelledBy="title">
+							<t:rowSettingsTemplate>
+								<t:RowSettings highlight="{Tipus}"/>
+							</t:rowSettingsTemplate> 
+							<t:columns>
+								<t:Column width="18rem">
+									<Label text="Resultat"/>
+									<t:template>
+										<Text text="{Resultat}"/>
+									</t:template>
+								</t:Column>
+								<t:Column width="7rem">
+									<Label text="Data"/>
+									<t:template>
+										<Text id="Datalta2" text="{path:'Datalta', type:'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true}}"/>
+									</t:template>
+								</t:Column>
+								<t:Column width="5rem">
+									<Label text="Hora"/>
+									<t:template>
+										<Text id="Horalta" text="{path:'Horalta', type:'sap.ui.model.odata.type.Time'}"/>
+									</t:template>
+								</t:Column>
+								<t:Column width="7rem">
+									<Label text="Integració"/>
+									<t:template>
+										<Text text="{Interfase} {Tippscp}"/>
+									</t:template>
+								</t:Column>
+								<t:Column>
+									<Label text="Missatge"/>
+									<t:template>
+										<TextArea name="Missatge" id="Missatge_id" enabled="false" width="100%" height="50px" value="{ path: 'Missatge', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:100, nullable:false } }"/>
+									</t:template>
+								</t:Column>
+							</t:columns>
+						</t:Table>
+					</IconTabFilter>
+					
+					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://attachment" tooltip="{i18n>detailIconTabBarAttachments}" text="Documents" iconColor="Neutral" count="{viewModel>/numDocs}">
+						<Button xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:smart="sap.ui.comp.smartfield" xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns="sap.m" id="buttonDoc" icon="sap-icon://add" type="Emphasized" press="onAddDocument" visible="{= ${viewModel>/mode} === 'edit'? true: false}" text="Afegir document"/>
+						<List id="listDoc" backgroundDesign="Transparent" showSeparators="Inner" items="{SCToDoc}" updateFinished="onDocListUpdateFinished" mode="{viewModel>/enableDel}" delete="onDelDoc" noDataText="No hi ha documents">
+							<ObjectListItem id="costAssignmentListItemPart" class="tecCostAssignmentsList" title="{Filename}" press="onSelDoc" type="Active" intro="{Mimetype}">
+							</ObjectListItem>
+						</List>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</semantic:content>
+		<semantic:editAction>
+			<semantic:EditAction id="edit" press="onEdit" visible="{= ${viewModel>/mode} === 'display'? true: false}"/>
+		</semantic:editAction>
+		<semantic:saveAction>
+			<semantic:SaveAction id="save" press="onSave" visible="{= ${viewModel>/mode} === 'display'? false: true}"/>
+		</semantic:saveAction>
+		<semantic:cancelAction>
+			<semantic:CancelAction id="cancel" press="onCancel"/>
+		</semantic:cancelAction>
+	</semantic:DetailPage>
+</mvc:View>

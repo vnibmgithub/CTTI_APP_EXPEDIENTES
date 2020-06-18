@@ -1,0 +1,338 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"id": "CRUD_EXP.CRUD_Exp",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/sap/opu/odata/sap/ZD_EXP_CONTR_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			},
+			"ZD_EXP_CONTR_SRV": {
+				"uri": "/sap/opu/odata/sap/ZD_EXP_CONTR_SRV/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/ZD_EXP_CONTR_SRV/metadata.xml"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://detail-view",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "CRUD_EXP.CRUD_Exp.view.App",
+			"type": "XML",
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.collaboration": {},
+				"sap.f": {},
+				"sap.m": {},
+				"sap.ui.comp": {},
+				"sap.ui.core": {},
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "CRUD_EXP.CRUD_Exp.i18n.i18n"
+				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "ZD_EXP_CONTR_SRV",
+				"preload": true
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "CRUD_EXP.CRUD_Exp.view",
+				"controlId": "idAppControl",
+				"controlAggregation": "detailPages",
+				"bypassed": {
+					"target": [
+						"master",
+						"notFound"
+					]
+				},
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "master",
+					"target": [
+						"object",
+						"master"
+					]
+				},
+				{
+					"pattern": "ExpedientSet/{Codiexp}",
+					"name": "object",
+					"target": [
+						"master",
+						"object"
+					]
+				}
+			],
+			"targets": {
+				"master": {
+					"viewName": "Master",
+					"viewLevel": 1,
+					"viewId": "master",
+					"controlAggregation": "masterPages",
+					"routerClass": "sap.m.routing.Router",
+					"viewType": "XML",
+					"viewPath": "CRUD_EXP.CRUD_Exp.view",
+					"controlId": "idAppControl",
+					"bypassed": {
+						"target": [
+							"master",
+							"notFound"
+						]
+					},
+					"async": true
+				},
+				"object": {
+					"viewName": "Detail",
+					"viewId": "detail",
+					"viewLevel": 2,
+					"routerClass": "sap.m.routing.Router",
+					"viewType": "XML",
+					"viewPath": "CRUD_EXP.CRUD_Exp.view",
+					"controlId": "idAppControl",
+					"controlAggregation": "detailPages",
+					"bypassed": {
+						"target": [
+							"master",
+							"notFound"
+						]
+					},
+					"async": true
+				},
+				"create": {
+					"viewName": "CreateEntity",
+					"viewLevel": 2,
+					"routerClass": "sap.m.routing.Router",
+					"viewType": "XML",
+					"viewPath": "CRUD_EXP.CRUD_Exp.view",
+					"controlId": "idAppControl",
+					"controlAggregation": "detailPages",
+					"bypassed": {
+						"target": [
+							"master",
+							"notFound"
+						]
+					},
+					"async": true
+				},
+				"detailObjectNotFound": {
+					"viewName": "DetailObjectNotFound",
+					"viewId": "detailObjectNotFound",
+					"routerClass": "sap.m.routing.Router",
+					"viewType": "XML",
+					"viewPath": "CRUD_EXP.CRUD_Exp.view",
+					"controlId": "idAppControl",
+					"controlAggregation": "detailPages",
+					"bypassed": {
+						"target": [
+							"master",
+							"notFound"
+						]
+					},
+					"async": true
+				},
+				"detailNoObjectsAvailable": {
+					"viewName": "DetailNoObjectsAvailable",
+					"viewId": "detailNoObjectsAvailable",
+					"routerClass": "sap.m.routing.Router",
+					"viewType": "XML",
+					"viewPath": "CRUD_EXP.CRUD_Exp.view",
+					"controlId": "idAppControl",
+					"controlAggregation": "detailPages",
+					"bypassed": {
+						"target": [
+							"master",
+							"notFound"
+						]
+					},
+					"async": true
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"viewId": "notFound",
+					"routerClass": "sap.m.routing.Router",
+					"viewType": "XML",
+					"viewPath": "CRUD_EXP.CRUD_Exp.view",
+					"controlId": "idAppControl",
+					"controlAggregation": "detailPages",
+					"bypassed": {
+						"target": [
+							"master",
+							"notFound"
+						]
+					},
+					"async": true
+				},
+				"UpdateExp": {
+					"viewName": "UpdateExp",
+					"viewLevel": 2,
+					"routerClass": "sap.m.routing.Router",
+					"viewType": "XML",
+					"viewPath": "CRUD_EXP.CRUD_Exp.view",
+					"controlId": "idNormalAppControl",
+					"controlAggregation": "pages",
+					"bypassed": {
+						"target": [
+							"master",
+							"notFound"
+						]
+					},
+					"async": true
+				},
+				"NovaOferta": {
+					"viewType": "XML",
+					"viewName": "NovaOferta",
+					"routerClass": "sap.m.routing.Router",
+					"viewPath": "CRUD_EXP.CRUD_Exp.view",
+					"controlId": "idAppControl",
+					"controlAggregation": "detailPages",
+					"bypassed": {
+						"target": [
+							"master",
+							"notFound"
+						]
+					},
+					"async": true
+				},
+				"Oferta": {
+					"viewName": "Oferta",
+					"viewLevel": 2,
+					"routerClass": "sap.m.routing.Router",
+					"viewType": "XML",
+					"viewPath": "CRUD_EXP.CRUD_Exp.view",
+					"controlId": "idNormalAppControl",
+					"controlAggregation": "pages",
+					"bypassed": {
+						"target": [
+							"master",
+							"notFound"
+						]
+					},
+					"async": true
+				},
+				"Lot": {
+					"viewName": "Lot",
+					"viewLevel": 2,
+					"routerClass": "sap.m.routing.Router",
+					"viewType": "XML",
+					"viewPath": "CRUD_EXP.CRUD_Exp.view",
+					"controlId": "idNormalAppControl",
+					"controlAggregation": "pages",
+					"bypassed": {
+						"target": [
+							"master",
+							"notFound"
+						]
+					},
+					"async": true
+				},
+				"SitCont": {
+					"viewName": "SitCont",
+					"viewLevel": 2,
+					"routerClass": "sap.m.routing.Router",
+					"viewType": "XML",
+					"viewPath": "CRUD_EXP.CRUD_Exp.view",
+					"controlId": "idNormalAppControl",
+					"controlAggregation": "pages",
+					"bypassed": {
+						"target": [
+							"master",
+							"notFound"
+						]
+					},
+					"async": true
+				},
+				"Factura": {
+					"viewName": "Factura",
+					"viewLevel": 2,
+					"routerClass": "sap.m.routing.Router",
+					"viewType": "XML",
+					"viewPath": "CRUD_EXP.CRUD_Exp.view",
+					"controlId": "idNormalAppControl",
+					"controlAggregation": "pages",
+					"bypassed": {
+						"target": [
+							"master",
+							"notFound"
+						]
+					},
+					"async": true
+				}
+			}
+		},
+		"services": {
+			"ShellUIService": {
+				"factoryName": "sap.ushell.ui5service.ShellUIService"
+			}
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zdexpedientapp/webapp",
+		"_version": "1.1.0"
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	}
+}

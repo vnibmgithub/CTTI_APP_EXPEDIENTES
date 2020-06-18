@@ -1,0 +1,16 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		noDataText="No hi ha integracions actives"
+		title="Selecciona integració"
+		confirm="handleIntegra"
+		items="{LotToIntAct}">
+		<StandardListItem
+			title="{DescrInt}"
+			description="{DescrSub}"
+			info="{Interfase} {InterfaseSub}"
+			type="Active"
+			iconDensityAware="{Documents}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

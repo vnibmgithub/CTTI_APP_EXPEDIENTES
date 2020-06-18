@@ -1,0 +1,53 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:b="sap.suite.ui.commons" xmlns:u="sap.ui.unified" xmlns:l="sap.ui.layout.form">
+	<Dialog 
+		title="Nou document"
+		resizable="false" 
+		draggable="false" 
+		showHeader="false" 
+		horizontalScrolling="false">
+		
+	<content>
+		<l:SimpleForm editable="true">
+			<l:content>
+				<VBox>
+					<Label id="AttachFile" text="Tipus de document"/>
+					<Select id="TipDoc" selectedKey="{Classdoc}">
+						<items>
+				            <core:ListItem key="" text=""/>
+							<core:ListItem key="AD" text="Proposta d'adjudicació"/>
+							<core:ListItem key="AL" text="Altres"/>
+							<core:ListItem key="AP" text="Aprovació d'inici d'expedient"/>
+							<core:ListItem key="CO" text="Contracte"/>
+							<core:ListItem key="EP" text="Evidència PSCP"/>
+							<core:ListItem key="ER" text="Evidència RPC"/>
+							<core:ListItem key="EV" text="Avaluació de contracte"/>
+							<core:ListItem key="FC" text="Formalització de cessió"/>
+							<core:ListItem key="FL" text="Formalització de liquidació per resolució"/>
+							<core:ListItem key="FM" text="Formalització de modificació"/>
+							<core:ListItem key="FP" text="Formalització de pròrroga"/>
+							<core:ListItem key="IA" text="Dades IAE"/>
+							<core:ListItem key="OF" text="Oferta"/>
+							<core:ListItem key="PA" text="Plec de clàusules administratives"/>
+							<core:ListItem key="PO" text="Projecte"/>
+							<core:ListItem key="PP" text="Plec de prescripcions tècniques"/>
+							<core:ListItem key="RE" text="Certificat RELI"/>
+							<core:ListItem key="RL" text="Sol·licitud a RELI"/>
+							<core:ListItem key="SS" text="Dades Seguretat Social"/>
+						</items>						
+					</Select>
+					<u:FileUploader
+						id="AttachUploader" width="700px"
+						sameFilenameAllowed="false"
+						placeholder="Selecciona el fitxer a guardar" style="Emphasized">
+					</u:FileUploader>
+				</VBox>
+			</l:content>
+		</l:SimpleForm>
+	</content>
+	
+	<buttons>
+		<Button icon="sap-icon://upload" id="ButAttachUpload" press="onAttachUpload" text="Pujar document" type="Emphasized"/>
+		<Button icon="sap-icon://sys-cancel" id="ButCloseAttahDialog" press="onCloseAttachDialogDoc" text="Cancel·lar" type="Emphasized"/>
+	</buttons>
+	</Dialog>
+</core:FragmentDefinition>

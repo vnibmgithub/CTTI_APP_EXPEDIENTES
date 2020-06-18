@@ -1,0 +1,81 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" controllerName="CRUD_EXP.CRUD_Exp.controller.Detail">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle} {Codiexp}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" cd:w5g.dt.context="/ExpedientSet">
+		<semantic:content>
+			<ObjectHeader id="objectHeader" title="{Objecte}" backgroundDesign="Transparent" condensed="true"/>
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}">
+						<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="newEntitySimpleForm" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="4" minWidth="1024">
+							<f:content>
+								<Label text="Data d'alta"/>
+								<Text id="Datalta" text="{path:'Datalta', type:'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true}}"/>
+								<Label text="Data última modificació"/>
+								<Text id="Datmod" text="{path:'Datmod', type:'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true}}"/>
+								<Label text="Estat"/>
+								<Text id="Estat_id" text="{Descrestat}"/>
+								<Label text="Tipus d'expedient"/>
+								<Label text="Centre"/>
+								<Text text="{Descrcentre}" id="CentreText"/>
+								<Label text="Tipus d'expedient"/>
+								<Text id="Tipexp_id" text="{Descrtipexp}" cd:w5g.dt.context="/ExpedientSet"/>
+								<Label text="Modalitat"/>
+								<Text id="Modalit" text="{Descrmodali}" cd:w5g.dt.context="/ExpedientSet"/>
+								<Label text="Procediment"/>
+								<Text text="{Descrproced}"/>
+								<Label text="Acord marc relacionat"/>
+								<Text text="{Acordmr}" id="AcordMarcaRel"/>
+								<Label text="Supòsit de negociat"/>
+								<Text id="Suposit" text="{Descrsuposit}"/>
+								<Label text="Tipus de contracte"/>
+								<Text id="Tipcontr" text="{Descrtipcont}"/>
+								<Label text="Subtipus de contracte"/>
+								<Text id="Subtipco" text="{Descrsubtip}"/>
+								<Label text="Pressupost licitació total (s. IVA)"/>
+								<Text id="Preslic_id" text="{path: 'Preslic', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:12, scale:2, nullable:false } } {Moneda}"/>
+								<Label text="Import adjudicació (sense IVA)"/>
+								<Text id="Impadjud_id" text="{path: 'Impadjud', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:12, scale:2, nullable:false } } {Moneda}"/>
+								<Label text="Data inici execució"/>
+								<Text text="{path:'Diniexec', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Diniexec_id"/>
+								<Label text="Data finalització execució"/>
+								<Text text="{path:'Dfinexec', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'd MMM yyyy', strictParsing: true, UTC:true}}" id="Dfinexec_id"/>
+							</f:content>
+						</f:SimpleForm>
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarDocs" icon="sap-icon://attachment" tooltip="Documents" iconColor="Neutral" text="Documents" count="{detailView>/numDocs}" visible="{= ${detailView>/numDocs} &gt; 0? true: false}">
+						<List id="listDoc" backgroundDesign="Transparent" showSeparators="Inner" items="{ExpToDoc}" updateFinished="onDocListUpdateFinished" noDataText="No hi ha documents">
+							<ObjectListItem id="costAssignmentListItemPart" class="tecCostAssignmentsList" title="{Filename}" press="onSelDoc" type="Active" intro="{Mimetype}">
+							</ObjectListItem>
+						</List> 
+					</IconTabFilter>
+					<IconTabFilter text="Lots" icon="sap-icon://folder" iconColor="Critical" id="filter0" cd:w5g.dt.context="/ExpedientSet" count="{Numlots}" visible="{Lots}">
+						<List id="listLot" items="{ExpToLot}">
+							<ObjectListItem title="{Objecte}" type="Navigation" press="onSelLot" id="LotList2" number="{parts:[{path:'Preslic'},{path:'Moneda'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false}}" numberUnit="{Moneda}" intro="{Codilot}">
+							</ObjectListItem>
+						</List> 
+					</IconTabFilter>
+					<IconTabFilter id="OfertesTab" text="Ofertes" icon="sap-icon://customer-financial-fact-sheet" iconColor="Positive" count="{detailView>/numOfer}" visible="{= ${detailView>/numOfer} &gt; 0? true: false}">
+						<List id="list2" items="{ExpToOfe}" noDataText="No existeixen ofertes" updateFinished="onOferListUpdateFinished">
+							<ObjectListItem title="{Raosoci}" type="Navigation" press="onSelOferta" id="ofertaList2" number="{parts:[{path:'Impofert'},{path:'Moneda'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false}}" numberUnit="{Moneda}" intro="{Codiofer}" showMarkers="true" markFavorite="{Adjudicat}">
+							</ObjectListItem>
+						</List> 
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarFact" icon="sap-icon://cart" text="Factures" iconColor="Negative" count="{detailView>/numFact}" visible="{= ${detailView>/numFact} &gt; 0? true: false}">
+						<List id="listFact" items="{ExpToFact}" noDataText="No hi han factures relacionades" updateFinished="onFactListUpdateFinished">
+							<ObjectListItem type="Active" press="onSelFact" id="FactList" number="{parts:[{path:'ImportFactura'},{path:'Moneda'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false}}" numberUnit="{Moneda}" intro="{Document}" title="{Descripcio}">
+							</ObjectListItem>
+						</List> 
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarSC" icon="sap-icon://database" text="Sit.Cont." iconColor="Negative" count="{detailView>/numSC}" visible="{= ${detailView>/numSC} &gt; 0? true: false}">
+						<List id="listSC" items="{ExpToSC}" noDataText="No existeixen situacions contractuals" updateFinished="onSCListUpdateFinished">
+							<ObjectListItem title="{Descrtitol}" type="Navigation" press="onSelSC" id="SCList">
+							</ObjectListItem>
+						</List> 
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</semantic:content>
+		<semantic:editAction>
+			<semantic:EditAction id="edit" press="onEdit"/>
+		</semantic:editAction>
+	</semantic:DetailPage>
+</mvc:View>

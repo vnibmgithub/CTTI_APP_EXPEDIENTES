@@ -1,0 +1,748 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZD_EXP_CONTR_SRV" xml:lang="es" sap:schema-version="1">
+			<EntityType Name="Expedient" sap:content-version="1">
+				<Key><PropertyRef Name="Codiexp"/></Key><Property Name="Eximgara" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Eximido garantía" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Subhomol" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Sumin.Homologados" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codiexp" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:label="Código de expediente"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Subagreg" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Subm.Agregados" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Orgcontr" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Org. Contratante"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Centre" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Centro" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Estat" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Estado" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Usualta" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Usuario de alta"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datalta" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha de alta" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Horalta" Type="Edm.Time" Nullable="false" Precision="0" sap:unicode="false" sap:label="Hora de alta" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Usumod" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Usuario Modif."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datmod" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha Modif." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Hormod" Type="Edm.Time" Nullable="false" Precision="0" sap:unicode="false" sap:label="Hora Modif." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Tipexp" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tipo de Exp." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Modalit" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Modalidad" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Procedim" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Procedimiento"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Acordmr" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="AM relacionado"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Suposit" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Supuesto negociado"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Numinvit" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Nº invitaciones"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Tipcontr" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tipo de contr."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Subtipco" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Subtipo contr."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Simplifi" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Simplificado" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Simpabre" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Simpl.Abreviado" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Critvalo" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Criterio valoración"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Plurianu" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Plurianual" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Tiptrami" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Tipo tramitación"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Lots" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Lotes" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Numlots" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Nº lotes" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Clausoci" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Cláusula social"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Resesoci" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Reserva social"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Cinnov" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Compra innov." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Acceexcl" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Acceso exclusivo" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Mgestefi" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Med.Gest.Eficiente" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Anticipa" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Anticipado" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Contconj" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Contrat. Conjunta" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Critadju" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Crit.Adjudicación"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Moneda" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Moneda" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/><Property Name="Moddetpr" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Mod.Determ.Precios"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datinici" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha de inicio" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datinfjur" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha informe jurídi" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dlimpres" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Lim.Pres.Oferta" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Hlimpres" Type="Edm.Time" Nullable="false" Precision="0" sap:unicode="false" sap:label="H.Lim.Pres.Oferta"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Llimpres" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="LugarLim.Pres.Oferta"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Modrece" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Mod.Recep.Oferta"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dataprov" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha aprobación" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codiantic" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Código antiguo"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Obsinici" Type="Edm.String" Nullable="false" MaxLength="3000" sap:unicode="false" sap:label="Observ.Inicio"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dpliboe" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Licit.BOE" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Impliboe" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Imp.Licit.BOE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dplidogc" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Licit.DOGC" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Implidogc" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Import.anu.lic. DOGC" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dplidoue" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Licit.DOUE" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dplipscp" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Licit.PSCP" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dfilipscp" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Fin Lic.PSCP" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datinvit" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha invitación" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datosoba" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Ap.Sobre Adm" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Horosoba" Type="Edm.Time" Nullable="false" Precision="0" sap:unicode="false" sap:label="Ap.Sobre Adm" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datosobt" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Ap.Sobre Técnico" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Horosobt" Type="Edm.Time" Nullable="false" Precision="0" sap:unicode="false" sap:label="Ap.Sobre Técnico"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Lloosobt" Type="Edm.String" Nullable="false" MaxLength="150" sap:unicode="false" sap:label="Ap.Sobre Técnico"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datosobe" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Ap.Sobre Eco" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Horosobe" Type="Edm.Time" Nullable="false" Precision="0" sap:unicode="false" sap:label="Ap.Sobre Eco" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Lloosobe" Type="Edm.String" Nullable="false" MaxLength="150" sap:unicode="false" sap:label="Ap.Sobre Eco"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Obslicit" Type="Edm.String" Nullable="false" MaxLength="3000" sap:unicode="false" sap:label="Observ.Licitación"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Impadjud" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Imp.Adjud." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ivaadjud" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Ind.IVA Adjudicación"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Impadjiva" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Importe Adjud. IVA" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datfisca" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha fiscalización" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Obsadjud" Type="Edm.String" Nullable="false" MaxLength="3000" sap:unicode="false" sap:label="Observ.Adjudicación"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Romatot" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Remanente total" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Obsexecu" Type="Edm.String" Nullable="false" MaxLength="3000" sap:unicode="false" sap:label="Observ.Ejecución"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datfinal" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha finalización" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Obsfinal" Type="Edm.String" Nullable="false" MaxLength="3000" sap:unicode="false" sap:label="Observ.Finalización"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Envpscp" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Envío PSCP" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Envreli" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Env.RELI" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Envrpc" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Envío a RPC" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Objecte" Type="Edm.String" Nullable="false" MaxLength="150" sap:unicode="false" sap:label="Objeto" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Preslic" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Pres.Licit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ivalicit" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Ind.IVA Licitación"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Presliciva" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Pres.Licit.IVA" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Revpreus" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Revisión precios"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codicpv" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Código CPV" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Llocexec" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Lugar de ejecución"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codiprod" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Código producto"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Paisorig" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="País origen" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Diniexec" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha ini. ejecución" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dfinexec" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.finaliz. ejecución" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Durcontr" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Duración contrato"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Durcterm" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Duración (plazo)"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Prorroga" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Prórroga" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Infprorr" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Info.Prórroga"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Impgprov" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Imp.Garantia Prov" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Pergprov" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="% Garantia Prov"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Impgdefi" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Imp.Garantia Def" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Pergdefi" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="% Garantia Def"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Estudict" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Estudios y dictámene" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Subcontr" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Subcontratación" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Variants" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Variantes" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Clasempr" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Clas.empresarial"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datadjud" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha adjudicación" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datnotif" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha notificación" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dpadboe" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Adjud.BOE" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Impadboe" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Imp.Adjud.BOE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dpaddogc" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Adjud.DOGC" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Impaddogc" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Importe anu.adj.DOGC" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dpaddoue" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Adjud.DOUE" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dpadpscp" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Adjud.PSCP" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dfiadpscp" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Fin Adj. PSCP" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dpfoboe" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Form.BOE" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Impfoboe" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Imp.Form.BOE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dpfodogc" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Form.DOGC" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Impfodogc" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Importe anu.for.DOGC" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dpfodoue" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Form.DOUE" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dpfopscp" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Form.PSCP" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dpublrpc" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha publicac. RPC" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datforma" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha formalización" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrestat" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Descriptivo"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrtipexp" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Descriptivo"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrmodali" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Descriptivo"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrproced" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Descriptivo"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrtipcont" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Descriptivo"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrsubtip" Type="Edm.String" Nullable="false" MaxLength="250" sap:unicode="false" sap:label="Descriptivo"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrsuposit" Type="Edm.String" Nullable="false" MaxLength="150" sap:unicode="false" sap:label="Descriptivo"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrcpv" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Descriptivo"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrcentre" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Descriptivo"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="ExpToAssM" Relationship="ZD_EXP_CONTR_SRV.AssisMeses" FromRole="FromRole_AssisMeses" ToRole="ToRole_AssisMeses"/><NavigationProperty Name="ExpToOfe" Relationship="ZD_EXP_CONTR_SRV.OferExp" FromRole="FromRole_OferExp" ToRole="ToRole_OferExp"/><NavigationProperty Name="ExpToFact" Relationship="ZD_EXP_CONTR_SRV.ExpFact" FromRole="FromRole_ExpFact" ToRole="ToRole_ExpFact"/><NavigationProperty Name="ExpToIntAct" Relationship="ZD_EXP_CONTR_SRV.IntActExp" FromRole="FromRole_IntActExp" ToRole="ToRole_IntActExp"/><NavigationProperty Name="ExpToLot" Relationship="ZD_EXP_CONTR_SRV.Lots" FromRole="FromRole_Lots" ToRole="ToRole_Lots"/><NavigationProperty Name="ExpToDoc" Relationship="ZD_EXP_CONTR_SRV.DocExp" FromRole="FromRole_DocExp" ToRole="ToRole_DocExp"/><NavigationProperty Name="ExpToAnu" Relationship="ZD_EXP_CONTR_SRV.ExpAnu" FromRole="FromRole_ExpAnu" ToRole="ToRole_ExpAnu"/><NavigationProperty Name="ExpToCri" Relationship="ZD_EXP_CONTR_SRV.ExpCri" FromRole="FromRole_ExpCri" ToRole="ToRole_ExpCri"/><NavigationProperty Name="ExpToSC" Relationship="ZD_EXP_CONTR_SRV.ExpSC" FromRole="FromRole_ExpSC" ToRole="ToRole_ExpSC"/><NavigationProperty Name="ExpToInt" Relationship="ZD_EXP_CONTR_SRV.IntExp" FromRole="FromRole_IntExp" ToRole="ToRole_IntExp"/></EntityType>
+			<EntityType Name="Lot" sap:content-version="1">
+				<Key><PropertyRef Name="Codiexp"/><PropertyRef Name="Codilot"/></Key><Property Name="Datforma" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha formalización" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codiexp" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:label="Código de expediente"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Durform" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Duración formalizaci"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codilot" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Código Lote" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Durfterm" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Duración (plazo)"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Objecte" Type="Edm.String" Nullable="false" MaxLength="150" sap:unicode="false" sap:label="Objeto" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Obsadjud" Type="Edm.String" Nullable="false" MaxLength="3000" sap:unicode="false" sap:label="Observ.Adjudicación"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Obsexecu" Type="Edm.String" Nullable="false" MaxLength="3000" sap:unicode="false" sap:label="Observ.Ejecución"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Preslic" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Pres.Licit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ivalicit" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Ind.IVA Licitación"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Obsfinal" Type="Edm.String" Nullable="false" MaxLength="3000" sap:unicode="false" sap:label="Observ.Finalización"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Presliciva" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Pres.Licit.IVA" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Moneda" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Moneda" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/><Property Name="Revpreus" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Revisión precios"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codicpv" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Código CPV" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Llocexec" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Lugar de ejecución"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codiprod" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Código producto"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Paisorig" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="País origen" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Diniexec" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha ini. ejecución" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dfinexec" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.finaliz. ejecución" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Durcontr" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Duración contrato"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Durcterm" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Duración (plazo)"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Prorroga" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Prórroga" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Infprorr" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Info.Prórroga"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Impgprov" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Imp.Garantia Prov" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Pergprov" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="% Garantia Prov"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Impgdefi" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Imp.Garantia Def" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Pergdefi" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="% Garantia Def"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Eximgara" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Eximido garantía"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Estudict" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Estudios y dictámene" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Subcontr" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Subcontratación" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Variants" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Variantes" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Clasempr" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Clas.empresarial"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datadjud" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha adjudicación" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datnotif" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha notificación" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dpadboe" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Adjud.BOE" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Impadboe" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Imp.Adjud.BOE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dpaddogc" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Adjud.DOGC" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Impaddogc" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Importe anu.adj.DOGC" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dpaddoue" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Adjud.DOUE" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dpadpscp" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Adjud.PSCP" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dfiadpscp" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Fin Adj. PSCP" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dpfoboe" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Form.BOE" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Impfoboe" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Imp.Form.BOE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dpfodogc" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Form.DOGC" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Impfodogc" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Importe anu.for.DOGC" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dpfodoue" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Form.DOUE" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dpfopscp" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Form.PSCP" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dfifopscp" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.fin Form.PSCP" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dpublrpc" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha publicac. RPC" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrcpv" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Descriptivo"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="LotToAnu" Relationship="ZD_EXP_CONTR_SRV.Anuals" FromRole="FromRole_Anuals" ToRole="ToRole_Anuals"/><NavigationProperty Name="LotToCri" Relationship="ZD_EXP_CONTR_SRV.Criteris" FromRole="FromRole_Criteris" ToRole="ToRole_Criteris"/><NavigationProperty Name="LotToFact" Relationship="ZD_EXP_CONTR_SRV.LotFact" FromRole="FromRole_LotFact" ToRole="ToRole_LotFact"/><NavigationProperty Name="LotToIntAct" Relationship="ZD_EXP_CONTR_SRV.IntActLot" FromRole="FromRole_IntActLot" ToRole="ToRole_IntActLot"/><NavigationProperty Name="LotToOfe" Relationship="ZD_EXP_CONTR_SRV.Ofertes" FromRole="FromRole_Ofertes" ToRole="ToRole_Ofertes"/><NavigationProperty Name="LotToSC" Relationship="ZD_EXP_CONTR_SRV.LotSC" FromRole="FromRole_LotSC" ToRole="ToRole_LotSC"/><NavigationProperty Name="LotToDoc" Relationship="ZD_EXP_CONTR_SRV.DocLot" FromRole="FromRole_DocLot" ToRole="ToRole_DocLot"/><NavigationProperty Name="LotToInt" Relationship="ZD_EXP_CONTR_SRV.IntLot" FromRole="FromRole_IntLot" ToRole="ToRole_IntLot"/></EntityType>
+			<EntityType Name="Criteri" sap:content-version="1">
+				<Key><PropertyRef Name="Codiexp"/><PropertyRef Name="Codilot"/><PropertyRef Name="Comptador"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codiexp" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:label="Código de expediente"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codilot" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Código Lote" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Comptador" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Contador" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Tipus" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tipo de solvencia"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Mitja" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Medio de solvencia"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrip" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Descripción"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Observ" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Observaciones"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Anual" sap:content-version="1">
+				<Key><PropertyRef Name="Codiexp"/><PropertyRef Name="Codilot"/><PropertyRef Name="Exercici"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codiexp" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:label="Código de expediente"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codilot" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Código Lote" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Exercici" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Ejercicio" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Implicit" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Imp. licitación" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Moneda" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Moneda" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/></EntityType>
+			<EntityType Name="AssisMesa" sap:content-version="1">
+				<Key><PropertyRef Name="Codiexp"/><PropertyRef Name="Comptador"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codiexp" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:label="Código de expediente"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Comptador" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Contador" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Mesrol" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Mesa: Rol" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Mesnom" Type="Edm.String" Nullable="false" MaxLength="150" sap:unicode="false" sap:label="Mesa: Nombre"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Mescarre" Type="Edm.String" Nullable="false" MaxLength="150" sap:unicode="false" sap:label="Mesa: Cargo"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Mescorre" Type="Edm.String" Nullable="false" MaxLength="150" sap:unicode="false" sap:label="Mesa: Correo electr."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="SitCont" sap:content-version="1">
+				<Key><PropertyRef Name="Codiexp"/><PropertyRef Name="Codilot"/><PropertyRef Name="Codiofer"/><PropertyRef Name="Tipsc"/><PropertyRef Name="Numsc"/></Key><Property Name="Descrtitol" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Texto (200 c.)"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dpublpscp" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codiexp" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:label="Código de expediente"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codilot" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Código Lote" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codiofer" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Tipsc" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tipo Sit.Contr" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Numsc" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Nº Sit. Contr" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ususc" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Usuario de alta"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datasc" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha de alta" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Horasc" Type="Edm.Time" Nullable="false" Precision="0" sap:unicode="false" sap:label="Hora de alta" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dataprov" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Dpublrpc" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha publicac. RPC" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Moneda" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Moneda" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/><Property Name="Tipmodif" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tipo modificación"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Caumodif" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Causa modificación"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Impmodif" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Imp.Modif" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ivamodif" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Ind. IVA" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Impmodifiva" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Imp.Modif (IVA)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ncodnif" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="NIF nuevo" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Nraosoci" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Razón social nueva"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ute" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="UTE" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Pais" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="País" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codextli" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="CódigoExternoLicitad"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Imprest" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Imp.Restante" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ivarest" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Ind. IVA" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Imprestiva" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Imp.Restante IVA" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dinipror" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha inicio prórrog" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dfinpror" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha fin prórroga" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Cauliqr" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Causa liq.resolución"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Drecfin" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.recepción final" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Impliqui" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Imp.Liquidación" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ivaliqui" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Ind. IVA" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Impliquiiva" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Imp.Liquidación(IVA)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Incgdefi" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Inc.Garantía Def" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="SCToDoc" Relationship="ZD_EXP_CONTR_SRV.DocSC" FromRole="FromRole_DocSC" ToRole="ToRole_DocSC"/><NavigationProperty Name="SCToInt" Relationship="ZD_EXP_CONTR_SRV.IntSC" FromRole="FromRole_IntSC" ToRole="ToRole_IntSC"/><NavigationProperty Name="SCToIntAct" Relationship="ZD_EXP_CONTR_SRV.IntActSC" FromRole="FromRole_IntActSC" ToRole="ToRole_IntActSC"/></EntityType>
+			<EntityType Name="ValuesCPV" sap:content-version="1">
+				<Key><PropertyRef Name="Codicpv"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codicpv" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Código CPV" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrip" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Descriptivo"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Factures" sap:content-version="1">
+				<Key><PropertyRef Name="Buzei"/><PropertyRef Name="DocTable"/><PropertyRef Name="Document"/><PropertyRef Name="Bukrs"/><PropertyRef Name="Gjahr"/></Key><Property Name="Buzei" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Proveidor" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Codiexp" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="NomProveidor" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codilot" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="NifProveidor" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DocTable" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Document" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Descripcio" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DataFactura" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ImportFactura" Type="Edm.Decimal" Nullable="false" Precision="14" Scale="3" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Moneda" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/><NavigationProperty Name="FactToFactP" Relationship="ZD_EXP_CONTR_SRV.FactFactP" FromRole="FromRole_FactFactP" ToRole="ToRole_FactFactP"/></EntityType>
+			<EntityType Name="ValuesIVA" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Spras"/><PropertyRef Name="Indiva"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Idioma" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Indiva" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Ind. IVA" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrip" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Descriptivo" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ValuesMoneda" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Spras"/><PropertyRef Name="Waers"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Idioma" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Moneda" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/><Property Name="Ltext" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Txt.explicativo"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ValuesRevPreus" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Spras"/><PropertyRef Name="Revpreus"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Idioma" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Revpreus" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Revisión precios"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrip" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Descriptivo" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ValuesCritVal" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Spras"/><PropertyRef Name="Critvalo"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Idioma" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Critvalo" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Criterio valoración"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrip" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Descriptivo" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ValuesCritAdj" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Spras"/><PropertyRef Name="Critadju"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Idioma" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Critadju" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Crit.Adjudicación"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrip" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Descriptivo" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ValuesTipTram" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Spras"/><PropertyRef Name="Tiptrami"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Idioma" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Tiptrami" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Tipo tramitación"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrip" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Descriptivo" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ValuesModPreu" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Spras"/><PropertyRef Name="Moddetpr"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Idioma" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Moddetpr" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Mod.Determ.Precios"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrip" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Descriptivo" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ValuesLlocExec" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Spras"/><PropertyRef Name="Llocexec"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Idioma" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Llocexec" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Lugar de ejecución"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrip" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Descriptivo" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ValuesPaisos" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Spras"/><PropertyRef Name="Land1"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Idioma" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Land1" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="País" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Landx50" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="País" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ValuesClauSoc" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Spras"/><PropertyRef Name="Clausoci"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Idioma" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Clausoci" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Cláusula social"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrip" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Descriptivo" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ValuesResSoc" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Spras"/><PropertyRef Name="Resesoci"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Idioma" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Resesoci" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Reserva social"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrip" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Descriptivo" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ValuesComInn" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Spras"/><PropertyRef Name="Cinnov"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Idioma" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Cinnov" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Compra innov." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrip" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Descriptivo" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ValuesCodProd" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Spras"/><PropertyRef Name="Codiprod"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Idioma" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codiprod" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Código producto"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrip" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Descriptivo" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Integra" sap:content-version="1">
+				<Key><PropertyRef Name="Comptador"/></Key><Property Name="Codiexp" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:label="Código de expediente"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codilot" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Código Lote" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codiofer" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Tipsc" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tipo Sit.Contr" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Numsc" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Nº Sit. Contr" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Interfase" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="InterfaseSub" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Subtipo integración"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Documents" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="IDÚn" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Comptador" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Contador" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Tipus" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Missatge" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ValuesIntegra" sap:content-version="1">
+				<Key><PropertyRef Name="Codiexp"/><PropertyRef Name="Numsc"/><PropertyRef Name="Codilot"/><PropertyRef Name="Codiofer"/><PropertyRef Name="Interfase"/><PropertyRef Name="Tipsc"/><PropertyRef Name="DescrInt"/><PropertyRef Name="InterfaseSub"/><PropertyRef Name="DescrSub"/></Key><Property Name="Codiexp" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:label="Código de expediente"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Numsc" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Nº Sit. Contr" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codilot" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Código Lote" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codiofer" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Interfase" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Tipsc" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tipo Sit.Contr" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DescrInt" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Descriptivo"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="InterfaseSub" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Subtipo integración"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DescrSub" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Descriptivo"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Documents" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Ofert" sap:content-version="1">
+				<Key><PropertyRef Name="Codiexp"/><PropertyRef Name="Codilot"/><PropertyRef Name="Codiofer"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Modprese" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Mod.Recep.Oferta"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codiexp" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:label="Código de expediente"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codilot" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Código Lote" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codiofer" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Codinif" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="NIF" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Raosoci" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Razón social"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ute" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="UTE" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Pais" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="País" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codextli" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="CódigoExternoLicitad"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Contacte" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Contacto" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Invitaci" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Invitación" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datprese" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.Pres.Oferta" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Horprese" Type="Edm.Time" Nullable="false" Precision="0" sap:unicode="false" sap:label="H.Pres.Oferta" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Oferta" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Oferta" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Exclos" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Excluido" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Motexclo" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Motivo exclusión"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Impofert" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Imp.Oferta" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ivaofert" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Ind. IVA" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Impofertiva" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Imp.Oferta IVA" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Moneda" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Moneda" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/><Property Name="Diniexec" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha ini. ejecución" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dfinexec" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F.finaliz. ejecución" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codigprov" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Garantía Prov"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Adjudicat" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Adjudicado" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Motadjud" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Motivo adjudicación"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Puntofer" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Puntuación Oferta"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dsigcont" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="F. Firma" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codigdefi" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Garantía Def"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="OfeToDoc" Relationship="ZD_EXP_CONTR_SRV.DocOfe" FromRole="FromRole_DocOfe" ToRole="ToRole_DocOfe"/><NavigationProperty Name="OfeToIntAct" Relationship="ZD_EXP_CONTR_SRV.IntActOfe" FromRole="FromRole_IntActOfe" ToRole="ToRole_IntActOfe"/><NavigationProperty Name="OfeToInt" Relationship="ZD_EXP_CONTR_SRV.IntOfe" FromRole="FromRole_IntOfe" ToRole="ToRole_IntOfe"/><NavigationProperty Name="OfeToSitC" Relationship="ZD_EXP_CONTR_SRV.SitConts" FromRole="FromRole_SitConts" ToRole="ToRole_SitConts"/></EntityType>
+			<EntityType Name="Document" m:HasStream="true" sap:content-version="1">
+				<Key><PropertyRef Name="Codiexp"/><PropertyRef Name="Codilot"/><PropertyRef Name="Codiofer"/><PropertyRef Name="Tipsc"/><PropertyRef Name="Numsc"/><PropertyRef Name="Comptador"/></Key><Property Name="Guid" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="IDÚn" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Docclass" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Clase documento"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codiexp" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:label="Código de expediente"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codilot" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Código Lote" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codiofer" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Tipsc" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tipo Sit.Contr" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Numsc" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Nº Sit. Contr" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Comptador" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Contador" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Classdoc" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Usualta" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Usuario de alta"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datalta" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha de alta" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Horalta" Type="Edm.Time" Nullable="false" Precision="0" sap:unicode="false" sap:label="Hora de alta" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Filename" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Id Documento"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Mimetype" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Mimetype" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Filesize" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Tamaño" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ValuesCentres" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Spras"/><PropertyRef Name="Centre"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Idioma" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Centre" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Centro" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrip" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Descriptivo" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ValuesModalitats" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Spras"/><PropertyRef Name="Modalit"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Idioma" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Modalit" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Modalidad" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrip" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Descriptivo" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ValuesProcedim" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Spras"/><PropertyRef Name="Procedim"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Idioma" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Procedim" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Procedimiento"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrip" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Descriptivo" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ValuesSuposits" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Spras"/><PropertyRef Name="Suposit"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Idioma" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Suposit" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Supuesto negociado"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrip" Type="Edm.String" Nullable="false" MaxLength="150" sap:unicode="false" sap:label="Descriptivo"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ValuesTipusContr" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Spras"/><PropertyRef Name="Tipcontr"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Idioma" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Tipcontr" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tipo de contr."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrip" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Descriptivo" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ValuesSubTipContr" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Spras"/><PropertyRef Name="Subtipco"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Idioma" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Subtipco" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Subtipo contr."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrip" Type="Edm.String" Nullable="false" MaxLength="250" sap:unicode="false" sap:label="Descriptivo"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ValuesTipusExp" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Spras"/><PropertyRef Name="Tipexp"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Idioma" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Tipexp" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tipo de Exp." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrip" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Descriptivo" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ValuesEstats" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Spras"/><PropertyRef Name="Estat"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mandante" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Idioma" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Estat" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Estado" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descrip" Type="Edm.String" Nullable="false" MaxLength="75" sap:unicode="false" sap:label="Descriptivo" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="FacturesP" sap:content-version="1">
+				<Key><PropertyRef Name="DocTable"/><PropertyRef Name="Document"/><PropertyRef Name="Bukrs"/><PropertyRef Name="Gjahr"/><PropertyRef Name="Buzei"/><PropertyRef Name="Posnr"/></Key><Property Name="Codiexp" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:label="Código de expediente"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codilot" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Código Lote" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DocTable" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Nombre de tabla"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Document" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Nº documento"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Sociedad" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Ejercicio" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Buzei" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Posición" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Posnr" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Posición" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ShortText" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Texto breve"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Import" Type="Edm.Decimal" Nullable="false" Precision="14" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Importe" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Moneda" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Moneda" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/><Property Name="Quantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unicode="false" sap:unit="Unit"
+					sap:label="Cantidad pedido" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Unit" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="UM de pedido" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/></EntityType>
+			<EntityType Name="Integracions" sap:content-version="1">
+				<Key><PropertyRef Name="Codiexp"/><PropertyRef Name="Codilot"/><PropertyRef Name="Codiofer"/><PropertyRef Name="Tipsc"/><PropertyRef Name="Numsc"/><PropertyRef Name="Interfase"/><PropertyRef Name="Comptador"/></Key><Property Name="Codiexp" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:label="Código de expediente"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datalta" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Codilot" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Código Lote" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Horalta" Type="Edm.Time" Nullable="false" Precision="0" sap:unicode="false" sap:label="Hora" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Codiofer" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Tipsc" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tipo Sit.Contr" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Numsc" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Nº Sit. Contr" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Interfase" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Comptador" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Contador" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Resultat" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Tipus" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Missatge" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<Association Name="AssisMeses" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.Expedient" Multiplicity="1" Role="FromRole_AssisMeses"/><End Type="ZD_EXP_CONTR_SRV.AssisMesa" Multiplicity="*" Role="ToRole_AssisMeses"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AssisMeses"><PropertyRef Name="Codiexp"/></Principal>
+					<Dependent Role="ToRole_AssisMeses"><PropertyRef Name="Codiexp"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="OferExp" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.Expedient" Multiplicity="1" Role="FromRole_OferExp"/><End Type="ZD_EXP_CONTR_SRV.Ofert" Multiplicity="*" Role="ToRole_OferExp"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_OferExp"><PropertyRef Name="Codiexp"/></Principal>
+					<Dependent Role="ToRole_OferExp"><PropertyRef Name="Codiexp"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="ExpFact" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.Expedient" Multiplicity="1" Role="FromRole_ExpFact"/><End Type="ZD_EXP_CONTR_SRV.Factures" Multiplicity="*" Role="ToRole_ExpFact"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ExpFact"><PropertyRef Name="Codiexp"/></Principal>
+					<Dependent Role="ToRole_ExpFact"><PropertyRef Name="Codiexp"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="IntActExp" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.Expedient" Multiplicity="1" Role="FromRole_IntActExp"/><End Type="ZD_EXP_CONTR_SRV.ValuesIntegra" Multiplicity="*" Role="ToRole_IntActExp"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_IntActExp"><PropertyRef Name="Codiexp"/></Principal>
+					<Dependent Role="ToRole_IntActExp"><PropertyRef Name="Codiexp"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Lots" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.Expedient" Multiplicity="1" Role="FromRole_Lots"/><End Type="ZD_EXP_CONTR_SRV.Lot" Multiplicity="*" Role="ToRole_Lots"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Lots"><PropertyRef Name="Codiexp"/></Principal>
+					<Dependent Role="ToRole_Lots"><PropertyRef Name="Codiexp"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="DocExp" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.Expedient" Multiplicity="1" Role="FromRole_DocExp"/><End Type="ZD_EXP_CONTR_SRV.Document" Multiplicity="*" Role="ToRole_DocExp"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_DocExp"><PropertyRef Name="Codiexp"/></Principal>
+					<Dependent Role="ToRole_DocExp"><PropertyRef Name="Codiexp"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="ExpAnu" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.Expedient" Multiplicity="1" Role="FromRole_ExpAnu"/><End Type="ZD_EXP_CONTR_SRV.Anual" Multiplicity="*" Role="ToRole_ExpAnu"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ExpAnu"><PropertyRef Name="Codiexp"/></Principal>
+					<Dependent Role="ToRole_ExpAnu"><PropertyRef Name="Codiexp"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="ExpCri" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.Expedient" Multiplicity="1" Role="FromRole_ExpCri"/><End Type="ZD_EXP_CONTR_SRV.Criteri" Multiplicity="*" Role="ToRole_ExpCri"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ExpCri"><PropertyRef Name="Codiexp"/></Principal>
+					<Dependent Role="ToRole_ExpCri"><PropertyRef Name="Codiexp"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="ExpSC" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.Expedient" Multiplicity="1" Role="FromRole_ExpSC"/><End Type="ZD_EXP_CONTR_SRV.SitCont" Multiplicity="*" Role="ToRole_ExpSC"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ExpSC"><PropertyRef Name="Codiexp"/></Principal>
+					<Dependent Role="ToRole_ExpSC"><PropertyRef Name="Codiexp"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="IntExp" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.Expedient" Multiplicity="1" Role="FromRole_IntExp"/><End Type="ZD_EXP_CONTR_SRV.Integracions" Multiplicity="*" Role="ToRole_IntExp"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_IntExp"><PropertyRef Name="Codiexp"/></Principal>
+					<Dependent Role="ToRole_IntExp"><PropertyRef Name="Codiexp"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="DocSC" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.SitCont" Multiplicity="1" Role="FromRole_DocSC"/><End Type="ZD_EXP_CONTR_SRV.Document" Multiplicity="*" Role="ToRole_DocSC"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_DocSC"><PropertyRef Name="Codiexp"/><PropertyRef Name="Codilot"/><PropertyRef Name="Numsc"/><PropertyRef Name="Tipsc"/><PropertyRef Name="Codiofer"/></Principal>
+					<Dependent Role="ToRole_DocSC"><PropertyRef Name="Codiexp"/><PropertyRef Name="Codilot"/><PropertyRef Name="Numsc"/><PropertyRef Name="Tipsc"/><PropertyRef Name="Codiofer"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="IntActSC" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.SitCont" Multiplicity="1" Role="FromRole_IntActSC"/><End Type="ZD_EXP_CONTR_SRV.ValuesIntegra" Multiplicity="*" Role="ToRole_IntActSC"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_IntActSC"><PropertyRef Name="Numsc"/><PropertyRef Name="Tipsc"/><PropertyRef Name="Codiofer"/><PropertyRef Name="Codilot"/><PropertyRef Name="Codiexp"/></Principal>
+					<Dependent Role="ToRole_IntActSC"><PropertyRef Name="Numsc"/><PropertyRef Name="Tipsc"/><PropertyRef Name="Codiofer"/><PropertyRef Name="Codilot"/><PropertyRef Name="Codiexp"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="IntSC" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.SitCont" Multiplicity="1" Role="FromRole_IntSC"/><End Type="ZD_EXP_CONTR_SRV.Integracions" Multiplicity="*" Role="ToRole_IntSC"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_IntSC"><PropertyRef Name="Codiexp"/><PropertyRef Name="Codilot"/><PropertyRef Name="Codiofer"/><PropertyRef Name="Tipsc"/><PropertyRef Name="Numsc"/></Principal>
+					<Dependent Role="ToRole_IntSC"><PropertyRef Name="Codiexp"/><PropertyRef Name="Codilot"/><PropertyRef Name="Codiofer"/><PropertyRef Name="Tipsc"/><PropertyRef Name="Numsc"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="SitConts" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.Ofert" Multiplicity="1" Role="FromRole_SitConts"/><End Type="ZD_EXP_CONTR_SRV.SitCont" Multiplicity="*" Role="ToRole_SitConts"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_SitConts"><PropertyRef Name="Codiofer"/><PropertyRef Name="Codilot"/><PropertyRef Name="Codiexp"/></Principal>
+					<Dependent Role="ToRole_SitConts"><PropertyRef Name="Codiofer"/><PropertyRef Name="Codilot"/><PropertyRef Name="Codiexp"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="IntOfe" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.Ofert" Multiplicity="1" Role="FromRole_IntOfe"/><End Type="ZD_EXP_CONTR_SRV.Integracions" Multiplicity="*" Role="ToRole_IntOfe"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_IntOfe"><PropertyRef Name="Codiofer"/><PropertyRef Name="Codilot"/><PropertyRef Name="Codiexp"/></Principal>
+					<Dependent Role="ToRole_IntOfe"><PropertyRef Name="Codiofer"/><PropertyRef Name="Codilot"/><PropertyRef Name="Codiexp"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="IntActOfe" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.Ofert" Multiplicity="1" Role="FromRole_IntActOfe"/><End Type="ZD_EXP_CONTR_SRV.ValuesIntegra" Multiplicity="*" Role="ToRole_IntActOfe"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_IntActOfe"><PropertyRef Name="Codiexp"/><PropertyRef Name="Codilot"/><PropertyRef Name="Codiofer"/></Principal>
+					<Dependent Role="ToRole_IntActOfe"><PropertyRef Name="Codiexp"/><PropertyRef Name="Codilot"/><PropertyRef Name="Codiofer"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="DocOfe" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.Ofert" Multiplicity="1" Role="FromRole_DocOfe"/><End Type="ZD_EXP_CONTR_SRV.Document" Multiplicity="*" Role="ToRole_DocOfe"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_DocOfe"><PropertyRef Name="Codiofer"/><PropertyRef Name="Codilot"/><PropertyRef Name="Codiexp"/></Principal>
+					<Dependent Role="ToRole_DocOfe"><PropertyRef Name="Codiofer"/><PropertyRef Name="Codilot"/><PropertyRef Name="Codiexp"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="FactFactP" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.Factures" Multiplicity="1" Role="FromRole_FactFactP"/><End Type="ZD_EXP_CONTR_SRV.FacturesP" Multiplicity="*" Role="ToRole_FactFactP"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_FactFactP"><PropertyRef Name="Buzei"/><PropertyRef Name="Gjahr"/><PropertyRef Name="Bukrs"/><PropertyRef Name="Document"/><PropertyRef Name="DocTable"/></Principal>
+					<Dependent Role="ToRole_FactFactP"><PropertyRef Name="Buzei"/><PropertyRef Name="Gjahr"/><PropertyRef Name="Bukrs"/><PropertyRef Name="Document"/><PropertyRef Name="DocTable"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Criteris" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.Lot" Multiplicity="1" Role="FromRole_Criteris"/><End Type="ZD_EXP_CONTR_SRV.Criteri" Multiplicity="*" Role="ToRole_Criteris"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Criteris"><PropertyRef Name="Codilot"/><PropertyRef Name="Codiexp"/></Principal>
+					<Dependent Role="ToRole_Criteris"><PropertyRef Name="Codilot"/><PropertyRef Name="Codiexp"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="LotFact" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.Lot" Multiplicity="1" Role="FromRole_LotFact"/><End Type="ZD_EXP_CONTR_SRV.Factures" Multiplicity="*" Role="ToRole_LotFact"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_LotFact"><PropertyRef Name="Codiexp"/><PropertyRef Name="Codilot"/></Principal>
+					<Dependent Role="ToRole_LotFact"><PropertyRef Name="Codiexp"/><PropertyRef Name="Codilot"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="IntActLot" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.Lot" Multiplicity="1" Role="FromRole_IntActLot"/><End Type="ZD_EXP_CONTR_SRV.ValuesIntegra" Multiplicity="*" Role="ToRole_IntActLot"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_IntActLot"><PropertyRef Name="Codilot"/><PropertyRef Name="Codiexp"/></Principal>
+					<Dependent Role="ToRole_IntActLot"><PropertyRef Name="Codilot"/><PropertyRef Name="Codiexp"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Ofertes" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.Lot" Multiplicity="1" Role="FromRole_Ofertes"/><End Type="ZD_EXP_CONTR_SRV.Ofert" Multiplicity="*" Role="ToRole_Ofertes"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Ofertes"><PropertyRef Name="Codilot"/><PropertyRef Name="Codiexp"/></Principal>
+					<Dependent Role="ToRole_Ofertes"><PropertyRef Name="Codilot"/><PropertyRef Name="Codiexp"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="LotSC" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.Lot" Multiplicity="1" Role="FromRole_LotSC"/><End Type="ZD_EXP_CONTR_SRV.SitCont" Multiplicity="*" Role="ToRole_LotSC"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_LotSC"><PropertyRef Name="Codilot"/><PropertyRef Name="Codiexp"/></Principal>
+					<Dependent Role="ToRole_LotSC"><PropertyRef Name="Codilot"/><PropertyRef Name="Codiexp"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="DocLot" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.Lot" Multiplicity="1" Role="FromRole_DocLot"/><End Type="ZD_EXP_CONTR_SRV.Document" Multiplicity="*" Role="ToRole_DocLot"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_DocLot"><PropertyRef Name="Codilot"/><PropertyRef Name="Codiexp"/></Principal>
+					<Dependent Role="ToRole_DocLot"><PropertyRef Name="Codilot"/><PropertyRef Name="Codiexp"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="IntLot" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.Lot" Multiplicity="1" Role="FromRole_IntLot"/><End Type="ZD_EXP_CONTR_SRV.Integracions" Multiplicity="*" Role="ToRole_IntLot"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_IntLot"><PropertyRef Name="Codiexp"/><PropertyRef Name="Codilot"/></Principal>
+					<Dependent Role="ToRole_IntLot"><PropertyRef Name="Codiexp"/><PropertyRef Name="Codilot"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Anuals" sap:content-version="1"><End Type="ZD_EXP_CONTR_SRV.Lot" Multiplicity="1" Role="FromRole_Anuals"/><End Type="ZD_EXP_CONTR_SRV.Anual" Multiplicity="*" Role="ToRole_Anuals"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Anuals"><PropertyRef Name="Codiexp"/><PropertyRef Name="Codilot"/></Principal>
+					<Dependent Role="ToRole_Anuals"><PropertyRef Name="Codiexp"/><PropertyRef Name="Codilot"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZD_EXP_CONTR_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="ExpedientSet" EntityType="ZD_EXP_CONTR_SRV.Expedient" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="LotSet" EntityType="ZD_EXP_CONTR_SRV.Lot" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="CriteriSet" EntityType="ZD_EXP_CONTR_SRV.Criteri" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="AnualSet" EntityType="ZD_EXP_CONTR_SRV.Anual" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="AssisMesaSet" EntityType="ZD_EXP_CONTR_SRV.AssisMesa" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="SitContSet" EntityType="ZD_EXP_CONTR_SRV.SitCont" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesCPVSet" EntityType="ZD_EXP_CONTR_SRV.ValuesCPV" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="FacturesSet" EntityType="ZD_EXP_CONTR_SRV.Factures" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesIVASet" EntityType="ZD_EXP_CONTR_SRV.ValuesIVA" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesMonedaSet" EntityType="ZD_EXP_CONTR_SRV.ValuesMoneda" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesRevPreusSet" EntityType="ZD_EXP_CONTR_SRV.ValuesRevPreus" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesCritValSet" EntityType="ZD_EXP_CONTR_SRV.ValuesCritVal" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesCritAdjSet" EntityType="ZD_EXP_CONTR_SRV.ValuesCritAdj" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesTipTramSet" EntityType="ZD_EXP_CONTR_SRV.ValuesTipTram" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesModPreuSet" EntityType="ZD_EXP_CONTR_SRV.ValuesModPreu" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesLlocExecSet" EntityType="ZD_EXP_CONTR_SRV.ValuesLlocExec" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesPaisosSet" EntityType="ZD_EXP_CONTR_SRV.ValuesPaisos" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesClauSocSet" EntityType="ZD_EXP_CONTR_SRV.ValuesClauSoc" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesResSocSet" EntityType="ZD_EXP_CONTR_SRV.ValuesResSoc" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesComInnSet" EntityType="ZD_EXP_CONTR_SRV.ValuesComInn" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesCodProdSet" EntityType="ZD_EXP_CONTR_SRV.ValuesCodProd" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="IntegraSet" EntityType="ZD_EXP_CONTR_SRV.Integra" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesIntegraSet" EntityType="ZD_EXP_CONTR_SRV.ValuesIntegra" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="OfeSet" EntityType="ZD_EXP_CONTR_SRV.Ofert" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="DocumentSet" EntityType="ZD_EXP_CONTR_SRV.Document" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesCentresSet" EntityType="ZD_EXP_CONTR_SRV.ValuesCentres" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesModalitatsSet" EntityType="ZD_EXP_CONTR_SRV.ValuesModalitats" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesProcedimSet" EntityType="ZD_EXP_CONTR_SRV.ValuesProcedim" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesSupositsSet" EntityType="ZD_EXP_CONTR_SRV.ValuesSuposits" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesTipusContrSet" EntityType="ZD_EXP_CONTR_SRV.ValuesTipusContr" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesTipContrSet" EntityType="ZD_EXP_CONTR_SRV.ValuesTipusContr" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesSubTipContrSet" EntityType="ZD_EXP_CONTR_SRV.ValuesSubTipContr" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesTipusExpSet" EntityType="ZD_EXP_CONTR_SRV.ValuesTipusExp" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ValuesEstatsSet" EntityType="ZD_EXP_CONTR_SRV.ValuesEstats" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="FacturesPSet" EntityType="ZD_EXP_CONTR_SRV.FacturesP" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="IntegracionsSet" EntityType="ZD_EXP_CONTR_SRV.Integracions" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+				<AssociationSet Name="ExpFactSet" Association="ZD_EXP_CONTR_SRV.ExpFact" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="ExpedientSet" Role="FromRole_ExpFact"/><End EntitySet="FacturesSet" Role="ToRole_ExpFact"/></AssociationSet>
+				<AssociationSet Name="SitContsSet" Association="ZD_EXP_CONTR_SRV.SitConts" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="OfeSet" Role="FromRole_SitConts"/><End EntitySet="SitContSet" Role="ToRole_SitConts"/></AssociationSet>
+				<AssociationSet Name="IntActOfeSet" Association="ZD_EXP_CONTR_SRV.IntActOfe" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="OfeSet" Role="FromRole_IntActOfe"/><End EntitySet="ValuesIntegraSet" Role="ToRole_IntActOfe"/></AssociationSet>
+				<AssociationSet Name="CriterisSet" Association="ZD_EXP_CONTR_SRV.Criteris" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="LotSet" Role="FromRole_Criteris"/><End EntitySet="CriteriSet" Role="ToRole_Criteris"/></AssociationSet>
+				<AssociationSet Name="ExpAnuSet" Association="ZD_EXP_CONTR_SRV.ExpAnu" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="ExpedientSet" Role="FromRole_ExpAnu"/><End EntitySet="AnualSet" Role="ToRole_ExpAnu"/></AssociationSet>
+				<AssociationSet Name="IntExpSet" Association="ZD_EXP_CONTR_SRV.IntExp" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="ExpedientSet" Role="FromRole_IntExp"/><End EntitySet="IntegracionsSet" Role="ToRole_IntExp"/></AssociationSet>
+				<AssociationSet Name="DocSCSet" Association="ZD_EXP_CONTR_SRV.DocSC" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="SitContSet" Role="FromRole_DocSC"/><End EntitySet="DocumentSet" Role="ToRole_DocSC"/></AssociationSet>
+				<AssociationSet Name="OferExpSet" Association="ZD_EXP_CONTR_SRV.OferExp" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="ExpedientSet" Role="FromRole_OferExp"/><End EntitySet="OfeSet" Role="ToRole_OferExp"/></AssociationSet>
+				<AssociationSet Name="ExpCriSet" Association="ZD_EXP_CONTR_SRV.ExpCri" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="ExpedientSet" Role="FromRole_ExpCri"/><End EntitySet="CriteriSet" Role="ToRole_ExpCri"/></AssociationSet>
+				<AssociationSet Name="LotSCSet" Association="ZD_EXP_CONTR_SRV.LotSC" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="LotSet" Role="FromRole_LotSC"/><End EntitySet="SitContSet" Role="ToRole_LotSC"/></AssociationSet>
+				<AssociationSet Name="OfertesSet" Association="ZD_EXP_CONTR_SRV.Ofertes" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="LotSet" Role="FromRole_Ofertes"/><End EntitySet="OfeSet" Role="ToRole_Ofertes"/></AssociationSet>
+				<AssociationSet Name="ExpSCSet" Association="ZD_EXP_CONTR_SRV.ExpSC" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="ExpedientSet" Role="FromRole_ExpSC"/><End EntitySet="SitContSet" Role="ToRole_ExpSC"/></AssociationSet>
+				<AssociationSet Name="DocExpSet" Association="ZD_EXP_CONTR_SRV.DocExp" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="ExpedientSet" Role="FromRole_DocExp"/><End EntitySet="DocumentSet" Role="ToRole_DocExp"/></AssociationSet>
+				<AssociationSet Name="IntActLot_AssocSet" Association="ZD_EXP_CONTR_SRV.IntActLot" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="LotSet" Role="FromRole_IntActLot"/><End EntitySet="ValuesIntegraSet" Role="ToRole_IntActLot"/></AssociationSet>
+				<AssociationSet Name="AssisMesesSet" Association="ZD_EXP_CONTR_SRV.AssisMeses" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="ExpedientSet" Role="FromRole_AssisMeses"/><End EntitySet="AssisMesaSet" Role="ToRole_AssisMeses"/></AssociationSet>
+				<AssociationSet Name="IntOfeSet" Association="ZD_EXP_CONTR_SRV.IntOfe" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="OfeSet" Role="FromRole_IntOfe"/><End EntitySet="IntegracionsSet" Role="ToRole_IntOfe"/></AssociationSet>
+				<AssociationSet Name="IntSCSet" Association="ZD_EXP_CONTR_SRV.IntSC" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="SitContSet" Role="FromRole_IntSC"/><End EntitySet="IntegracionsSet" Role="ToRole_IntSC"/></AssociationSet>
+				<AssociationSet Name="DocOfeSet" Association="ZD_EXP_CONTR_SRV.DocOfe" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="OfeSet" Role="FromRole_DocOfe"/><End EntitySet="DocumentSet" Role="ToRole_DocOfe"/></AssociationSet>
+				<AssociationSet Name="DocLotSet" Association="ZD_EXP_CONTR_SRV.DocLot" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="LotSet" Role="FromRole_DocLot"/><End EntitySet="DocumentSet" Role="ToRole_DocLot"/></AssociationSet>
+				<AssociationSet Name="LotsSet" Association="ZD_EXP_CONTR_SRV.Lots" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="ExpedientSet" Role="FromRole_Lots"/><End EntitySet="LotSet" Role="ToRole_Lots"/></AssociationSet>
+				<AssociationSet Name="FactFactPSet" Association="ZD_EXP_CONTR_SRV.FactFactP" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="FacturesSet" Role="FromRole_FactFactP"/><End EntitySet="FacturesPSet" Role="ToRole_FactFactP"/></AssociationSet>
+				<AssociationSet Name="IntActSCSet" Association="ZD_EXP_CONTR_SRV.IntActSC" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="SitContSet" Role="FromRole_IntActSC"/><End EntitySet="ValuesIntegraSet" Role="ToRole_IntActSC"/></AssociationSet>
+				<AssociationSet Name="IntActExpSet" Association="ZD_EXP_CONTR_SRV.IntActExp" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="ExpedientSet" Role="FromRole_IntActExp"/><End EntitySet="ValuesIntegraSet" Role="ToRole_IntActExp"/></AssociationSet>
+				<AssociationSet Name="IntLotSet" Association="ZD_EXP_CONTR_SRV.IntLot" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="LotSet" Role="FromRole_IntLot"/><End EntitySet="IntegracionsSet" Role="ToRole_IntLot"/></AssociationSet>
+				<AssociationSet Name="AnualsSet" Association="ZD_EXP_CONTR_SRV.Anuals" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="LotSet" Role="FromRole_Anuals"/><End EntitySet="AnualSet" Role="ToRole_Anuals"/></AssociationSet>
+				<AssociationSet Name="LotFactSet" Association="ZD_EXP_CONTR_SRV.LotFact" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="LotSet" Role="FromRole_LotFact"/><End EntitySet="FacturesSet" Role="ToRole_LotFact"/></AssociationSet>
+			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZD_EXP_CONTR_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZD_EXP_CONTR_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
